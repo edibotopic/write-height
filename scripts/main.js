@@ -70,11 +70,11 @@ function meshify() {
     )
     defaultMaterial.diffuseColor = new BABYLON.Color3(0.3, 1, 0.7)
     defaultMaterial.diffuseTexture = new BABYLON.Texture(
-      '../textures/Plaster/PaintedPlaster017_1K_Color.png',
+      '../textures/plaster/PaintedPlaster017_1K_Color.png',
       scene
     )
     defaultMaterial.normalTexture = new BABYLON.Texture(
-      '../textures/Plaster/PaintedPlaster017_1K_NormalGL.png',
+      '../textures/plaster/PaintedPlaster017_1K_NormalGL.png',
       scene
     )
     defaultMaterial.glossiness = 0.0
