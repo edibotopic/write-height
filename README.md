@@ -60,15 +60,11 @@ yours that you would like me to
 credit or remove please let me
 know.
 
-{% note %}
-
-**Note:** Currently it is not possible
-to download 3D models of the randomly 
-generated meshes. You need to upload
-your own image to generate a downloadable
-model.
-
-{% endnote %}
+> **Warning** 
+> Currently it is not possible
+> to download 3D models of the randomly 
+> generated meshes. You need to upload
+> your own image to generate a downloadable model.
 
 ## Similar Tools
 
