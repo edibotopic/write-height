@@ -42,6 +42,7 @@ Some of these limitations may be addressed in future versions.
 - [ ] Simple graphic to explain concept
 - [ ] More demos - especially hand-drawn
 - [ ] Gallery
+- [ ] License
 - [ ] Guide: methods to create heightmaps
 - [ ] More interesting colors/post-processing?
 
@@ -58,6 +59,16 @@ use. If you recognise an image of
 yours that you would like me to
 credit or remove please let me
 know.
+
+{% note %}
+
+**Note:** Currently it is not possible
+to download 3D models of the randomly 
+generated meshes. You need to upload
+your own image to generate a downloadable
+model.
+
+{% endnote %}
 
 ## Similar Tools
 
