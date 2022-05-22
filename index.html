@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Write Height</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+  </head>
+
+  <body>
+    <h1>Write Height</h1>
+
+    <p>Convert any greyscale image to 3D.</p>
+
+    <canvas id="renderCanvas"> </canvas>
+
+    <div>
+      <form>
+        <br />
+        <label for="img">Find your own image:</label>
+        <input
+          type="file"
+          id="img"
+          name="img"
+          accept="image/*"
+          onchange="loadFile(event); meshify();"
+        />
+      </form>
+    </div>
+
+    <div id="tail">
+      <div id="images">
+        <img id="output" src="" />
+        <!-- <img -->
+        <!--   id="invert" -->
+        <!--   src="./demos/demo1.png" -->
+        <!--   alt="" -->
+        <!--   width="250px" -->
+        <!--   class="inverted" -->
+        <!-- /> -->
+      </div>
+
+      <!-- <input type="checkbox" id="myCheck" onclick="meshify()"> -->
+
+      <div id="about">
+        <p>
+          This simple tool converts greyscale images into 3D using
+          <a href="https://www.babylonjs.com">Babylon.js</a>. You can pan (drag)
+          and zoom (pinch/scroll) to inspect the model. Models can be exported
+          as <kbd>.stl</kbd>, <kbd>.obj</kbd> and <kbd>.glb</kbd> files for your
+          projects. I made this tool to be a free and easy way for beginners to
+          experiment with 3D. View source on
+          <a href="https://edibotopic.github.io/write-height">Github</a>.
+        </p>
+      </div>
+    </div>
+    <small style="position: absolute; bottom: 0">edibotopic 2022</small>
+
+    <script>
+      var loadFile = function (event) {
+        var image = document.getElementById('output')
+        image.src = URL.createObjectURL(event.target.files[0])
+        // var invert = document.getElementById('invert')
+        // invert.src = URL.createObjectURL(event.target.files[0])
+      }
+    </script>
+
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+    <script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
+    <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
+    <script src="https://cdn.babylonjs.com/materialsLibrary/babylon.gridMaterial.min.js"></script>
+    <script src="https://preview.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
+    <script src="./scripts/imager.js"></script>
+    <script src="./scripts/main.js" defer></script>
+    <!-- <script src="/walker.js"></script> -->
+  </body>
+</html>

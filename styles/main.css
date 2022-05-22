@@ -1,0 +1,64 @@
+html,
+body {
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding-left: 5vw;
+  background-color: black;
+  color: white;
+  text-align: left;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 4vh;
+  text-align: left;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500;
+}
+
+#renderCanvas {
+  touch-action: none;
+  width: 80%;
+  height: 40%;
+  border: 4px solid orange;
+  border-radius: 25px;
+}
+
+#tail {
+  width: 80%;
+}
+
+#images {
+}
+
+#output {
+  width: 15vw;
+  height: 15vw;
+  float: left;
+  border: 2px solid white;
+  margin-right: 10px;
+}
+
+#about {
+  word-wrap: break-word;
+  color: orange;
+  text-align: justify;
+}
+
+p {
+  font-size: 2vw;
+}
+
+a {
+  color: green;
+}
+
+.inverted {
+  max-width: 100%;
+  height: 100%;
+  margin-top: 10px;
+  filter: invert(100%);
+}
