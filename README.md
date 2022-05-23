@@ -36,6 +36,7 @@ Some of these limitations may be addressed in future versions.
 
 ## Roadmap
 
+- [ ] Figure out a texturing solution
 - [ ] Sliders for controlling subdivisions, height and depth of model
 - [ ] Comment on image filetypes in readme
 - [ ] Option to invert height map (peaks become valleys and vice versa)
