@@ -4,21 +4,13 @@ let activateButtons = () => {
   gui = 1
 }
 
-function meshify() {
+let meshify = () => {
   const canvas = document.getElementById('renderCanvas')
   const engine = new BABYLON.Engine(canvas, true)
 
   var createScene = function () {
     var scene = new BABYLON.Scene(engine)
     scene.clearColor = BABYLON.Color3.Black()
-
-    // var camera = new BABYLON.FreeCamera(
-    //   'camera1',
-    //   new BABYLON.Vector3(0, 20, -20),
-    //   scene
-    // )
-    // camera.setTarget(BABYLON.Vector3.Zero())
-    // camera.attachControl(canvas, true)
 
     var cameraArc = new BABYLON.ArcRotateCamera(
       'CameraArc',
@@ -76,7 +68,7 @@ function meshify() {
     gridMaterial.opacity = 0.5
     ground.material = gridMaterial
 
-    let detail = 400 // TODO connect to a slider
+    let detail = 400
     let model = BABYLON.MeshBuilder.CreateGroundFromHeightMap(
       'gdhm',
       image.src,
@@ -97,18 +89,10 @@ function meshify() {
       scene
     )
     defaultMaterial.diffuseColor = new BABYLON.Color3(1, 1, 1)
-    defaultMaterial.diffuseTexture = new BABYLON.Texture(
-      'textures/plaster/PaintedPlaster017_1K_Color.png',
-      scene
-    )
-    defaultMaterial.normalTexture = new BABYLON.Texture(
-      'textures/plaster/PaintedPlaster017_1K_NormalGL.png',
-      scene
-    )
-    defaultMaterial.glossiness = 0.0
     model.material = defaultMaterial
     model.material.wireframe = false
 
+    //Canvas GUI
     let showButtons = () => {
       if (gui == 1) {
         var advancedTexture =
@@ -215,6 +199,7 @@ function meshify() {
 
     showButtons()
 
+    // TODO: implement mesh customisation
     // var panel = new BABYLON.GUI.StackPanel()
     // panel.width = '550px'
     // panel.fontSize = '14px'
