@@ -24,7 +24,7 @@ function meshify() {
     )
 
     cameraArc.setPosition(new BABYLON.Vector3(10, 20, 10))
-    cameraArc.attachControl(canvas, true)
+    cameraArc.attachControl(canvas, false)
 
     // Camera constraints
     cameraArc.lowerBetaLimit = 0.5
