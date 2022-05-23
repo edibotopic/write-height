@@ -6,25 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Write Height</title>
     <link rel="stylesheet" href="./styles/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
 
   <body>
-    <h1>Write Height</h1>
-
-    <p>Convert any greyscale image to 3D.</p>
+    <div id="header">
+      <h1>
+        Write Height <span id="bar">|</span>
+        <span id="subhead">Convert any greyscale image to 3D</span>
+      </h1>
+    </div>
 
     <canvas id="renderCanvas"> </canvas>
 
     <div>
       <form>
         <br />
-        <label for="img">Find your own image:</label>
+        <label class="custom-upload" for="img">
+          <i class="fa fa-upload" aria-hidden="true"></i>
+          Upload your image
+        </label>
         <input
           type="file"
           id="img"
           name="img"
           accept="image/*"
-          onchange="loadFile(event); meshify();"
+          onchange="loadFile(event); activateButtons(); meshify();"
         />
       </form>
     </div>
@@ -50,12 +60,14 @@
           and zoom (pinch/scroll) to inspect the model. Models can be exported
           as <kbd>.stl</kbd>, <kbd>.obj</kbd> and <kbd>.glb</kbd> files for your
           projects. I made this tool to be a free and easy way for beginners to
-          experiment with 3D. View source on
+          experiment with 3D. View source code on
           <a href="https://github.com/edibotopic/write-height">Github</a>.
         </p>
       </div>
     </div>
-    <small style="position: absolute; bottom: 0">edibotopic 2022</small>
+    <div id="footer">
+      <a href="https://github.com/edibotopic/write-height">edibotopic | 2022</a>
+    </div>
 
     <script>
       var loadFile = function (event) {

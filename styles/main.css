@@ -13,6 +13,10 @@ body {
   font-weight: 300;
 }
 
+#header {
+  width: 70vw;
+}
+
 h1 {
   font-size: 4vh;
   text-align: left;
@@ -20,12 +24,29 @@ h1 {
   font-weight: 500;
 }
 
+#bar {
+  font-size: 4vh;
+  text-align: left;
+  font-family: 'archivo', sans-serif;
+  font-weight: 400;
+  color: RGB(238, 130, 238);
+}
+
+#subhead {
+  font-size: 3vh;
+  text-align: left;
+  font-family: 'archivo', sans-serif;
+  font-weight: 200;
+  word-wrap: break-word;
+}
+
 #renderCanvas {
   touch-action: none;
   width: 80%;
   height: 40%;
-  border: 4px solid orange;
+  border: 4px solid white;
   border-radius: 25px;
+  outline: none;
 }
 
 #tail {
@@ -39,7 +60,7 @@ h1 {
   width: 15vw;
   height: 15vw;
   float: left;
-  border: 2px solid white;
+  /* border: 2px solid white; */
   margin-right: 10px;
 }
 
@@ -50,11 +71,41 @@ h1 {
 }
 
 p {
+  color: white;
   font-size: 2vw;
 }
 
-a {
-  color: green;
+a:link {
+  color: RGB(238, 130, 238);
+  text-decoration: none;
+}
+
+a:visited {
+  color: RGB(208, 100, 208);
+  text-decoration: none;
+}
+
+a:hover {
+  color: RGB(238, 130, 238);
+  text-decoration: underline;
+}
+
+input[type='file'] {
+  display: none;
+}
+
+.custom-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.custom-upload:hover {
+  border: 2px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
 }
 
 .inverted {
@@ -62,4 +113,14 @@ a {
   height: 100%;
   margin-top: 10px;
   filter: invert(100%);
+}
+
+#footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: RGB(250, 250, 250, 0.1);
+  color: RGB(238, 130, 238);
+  text-align: center;
 }

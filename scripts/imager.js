@@ -15,8 +15,6 @@ const imgs = [
   'demos/natural7.png',
   'demos/tech1.png',
   'demos/tech2.png',
-  'demos/tech3.png',
-  'demos/tech4.png',
 ]
 
 getRndImg = () => {

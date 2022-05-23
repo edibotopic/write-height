@@ -8,12 +8,13 @@ requiring software downloads or technical know-how.
 ## How it Works
 
 Click the <kbd>browse</kbd> button to select a file on your phone, tablet or computer.
-The image will then be shown on screen as a 3D render. You can pan
-around the 3D model by dragging with your mouse or on your touchscreen.
-In addition, you can zoom using a scroll-wheel or by pinching
-on a touchscreen.
+The image will then be shown on screen as a 3D render. You can rotate
+around the 3D model by dragging with the left mouse button or by swiping
+across your touchscreen. Zooming is controlled using a scroll-wheel or by 
+pinching on a touchscreen. Panning can be achieved by holding <kbd>ctrl</kbd>
+and the left mouse button or simply the right mouse button.
 
-You can then click different buttons if you want to download the 3D file.
+Once a file is uploaded buttons will appear that allow you to download the 3D file.
 There are three options currently: `.obj`, `.glb` or `.stl`. The `.stl`
 option is probably preferred if you are working on a 3D printing project
 while the other filetypes are commonly used in 3D graphics and game design.
@@ -21,23 +22,27 @@ while the other filetypes are commonly used in 3D graphics and game design.
 Much of the underlying functionality is provided by the excellent
 [Babylon.js](https://www.babylonjs.com) engine, which enables the heightmapping, rendering and file creation.
 
+> **Note** 
+> Large image files will take longer to process 
+
 ## Limitations
 
 The rendered objects may not be ready for specific uses without further editing. For example,
 you may want to inspect the topology of the model to ensure there is a low
-polygon count (games) and an absence of holes (printing). In addition, for
-printing the model will likely need some kind of flat base for support.
+polygon count (games) or no non-manifold geometry (printing). Your 3D printing
+software should alert you to any issues with the model relating to ground support.
 
 Some of these limitations may be addressed in future versions.
 
 ## Roadmap
 
 - [ ] Sliders for controlling subdivisions, height and depth of model
+- [ ] Comment on image filetypes in readme
 - [ ] Option to invert height map (peaks become valleys and vice versa)
 - [ ] Camera for user to navigate/walk the surface of the model
 - [ ] Toggle wireframe to better see model topology
 - [ ] Figure out textures: needed? procedural option?
-- [ ] Add gridlines in render window
+- [x] Add gridlines in render window
 - [ ] Change name of file to download
 - [ ] Simple graphic to explain concept
 - [ ] More demos - especially hand-drawn
@@ -45,6 +50,7 @@ Some of these limitations may be addressed in future versions.
 - [ ] License
 - [ ] Guide: methods to create heightmaps
 - [ ] More interesting colors/post-processing?
+- [x] More minimal aesthetic
 
 ## Demos
 
