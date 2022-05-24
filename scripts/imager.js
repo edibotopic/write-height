@@ -18,7 +18,20 @@ const imgs = [
   'demos/tech3.jpg',
 ]
 
+let oldImg = []
+let imgCount = 0
+
 getRndImg = () => {
   var rnd = Math.floor(Math.random() * imgs.length)
-  document.getElementById('output').src = imgs[rnd]
+  if (!oldImg[rnd]) {
+    document.getElementById('output').src = imgs[rnd]
+    oldImg[rnd] = true
+    imgCount++
+    if (imgCount === imgs.length) {
+      imgCount = 0
+      oldImg = {}
+    }
+  } else {
+    getRndImg()
+  }
 }

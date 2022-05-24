@@ -22,7 +22,7 @@
 
     <canvas id="renderCanvas"> </canvas>
 
-    <div>
+    <div class="button-group">
       <form>
         <br />
         <label class="custom-upload" for="img">
@@ -37,21 +37,15 @@
           onchange="loadFile(event); activateButtons(); meshify();"
         />
       </form>
+      <button class="custom-button" onclick="getRndImg(); meshify()">
+        <i class="fa fa-random" aria-hidden="true"></i> New demo image
+      </button>
     </div>
-
+    <br /><br />
     <div id="tail">
       <div id="images">
         <img id="output" src="" />
-        <!-- <img -->
-        <!--   id="invert" -->
-        <!--   src="./demos/demo1.png" -->
-        <!--   alt="" -->
-        <!--   width="250px" -->
-        <!--   class="inverted" -->
-        <!-- /> -->
       </div>
-
-      <!-- <input type="checkbox" id="myCheck" onclick="meshify()"> -->
 
       <div id="about">
         <p>
@@ -65,6 +59,7 @@
         </p>
       </div>
     </div>
+
     <div id="footer">
       <a href="https://github.com/edibotopic/write-height">edibotopic | 2022</a>
     </div>
