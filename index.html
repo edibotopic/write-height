@@ -13,6 +13,9 @@
   </head>
 
   <body>
+        <div class="wrap-all">
+            
+        </div>
     <div id="header">
       <h1>
         Write Height <span id="bar">|</span>
@@ -20,14 +23,16 @@
       </h1>
     </div>
 
+        <div class="render-container">
     <canvas id="renderCanvas"> </canvas>
+        </div>
 
     <div class="button-group">
       <form>
         <br />
         <label class="custom-upload" for="img">
           <i class="fa fa-upload" aria-hidden="true"></i>
-          Upload your image
+          Upload an image
         </label>
         <input
           type="file"
@@ -49,9 +54,9 @@
 
       <div id="about">
         <p>
-          This simple tool converts greyscale images into 3D using
-          <a href="https://www.babylonjs.com">Babylon.js</a>. You can pan (drag)
-          and zoom (pinch/scroll) to inspect the model. Models can be exported
+          This tool converts greyscale images into 3D using
+          <a href="https://www.babylonjs.com">Babylon.js</a>. You can rotate (right-mouse/touch)
+          and zoom (pinch/scroll) to inspect the model. Uploaded models can be exported
           as <kbd>.stl</kbd>, <kbd>.obj</kbd> and <kbd>.glb</kbd> files for your
           projects. I made this tool to be a free and easy way for beginners to
           experiment with 3D. View source code on
@@ -63,6 +68,8 @@
     <div id="footer">
       <a href="https://github.com/edibotopic/write-height">edibotopic | 2022</a>
     </div>
+
+        </div>
 
     <script>
       var loadFile = function (event) {

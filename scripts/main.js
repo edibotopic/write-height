@@ -72,7 +72,7 @@ let meshify = () => {
     ground.rotation = new BABYLON.Vector3(Math.PI / 2, 0, 0)
     const gridMaterial = new BABYLON.GridMaterial('gridMaterial', scene)
     gridMaterial.mainColor = new BABYLON.Color3(0.8, 0.4, 0.8)
-    gridMaterial.lineColor = new BABYLON.Color3(2, 2, 2)
+    gridMaterial.lineColor = new BABYLON.Color3(2, 1, 2)
     gridMaterial.opacity = 0.9
     ground.material = gridMaterial
 
