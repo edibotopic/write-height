@@ -1,0 +1,22 @@
+# Checklist
+
+- [ ] Get completion in nv
+- [ ] Add a reset button
+- [ ] Test model textures
+- [ ] Toggle wireframe
+- [ ] Toggle fullscreen
+- [ ] Animate gridlines
+- [ ] Particle effects
+- [ ] Animation in general
+- [ ] Make a logo
+- [ ] Add a gallery
+- [ ] Add an About page
+- [ ] Test skyboxes
+- [ ] Make interaction fool-proof
+- [ ] Test multiple scenes/cameras
+- [ ] Add mesh collisions
+- [ ] Make some interesting examples
+- [ ] Add procedural mesh generation
+- [ ] Try custom maps with new software (on PC?) 
+- [ ] Text input option?
+- [ ] Tracery integration??

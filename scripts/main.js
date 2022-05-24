@@ -63,12 +63,12 @@ let meshify = () => {
     ground.position = new BABYLON.Vector3(0, -0.1, 0)
     ground.rotation = new BABYLON.Vector3(Math.PI / 2, 0, 0)
     const gridMaterial = new BABYLON.GridMaterial('gridMaterial', scene)
-    gridMaterial.mainColor = new BABYLON.Color3(0, 0, 0)
+    gridMaterial.mainColor = new BABYLON.Color3(0.8, 0.4, 0.8)
     gridMaterial.lineColor = new BABYLON.Color3(2, 1, 2)
-    gridMaterial.opacity = 0.5
+    gridMaterial.opacity = 0.9
     ground.material = gridMaterial
 
-    let detail = 400
+    let detail = 500
     let model = BABYLON.MeshBuilder.CreateGroundFromHeightMap(
       'gdhm',
       image.src,
@@ -78,6 +78,7 @@ let meshify = () => {
         subdivisions: detail,
         maxHeight: 4,
         minHeight: 0,
+        // colorFilter: new BABYLON.Color3(1,1,1) NOTE: what does this do?
       },
       scene
       // true
