@@ -36,7 +36,7 @@ Some of these limitations may be addressed in future versions.
 
 ## Roadmap
 
-- [0] New demo toggle
+- [ ] New demo toggle
 - [ ] Transitions for (re)loading
 - [ ] Canvas interaction prompts
 - [ ] Figure out a texturing solution
