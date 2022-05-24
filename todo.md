@@ -4,6 +4,13 @@
 - [ ] Add a reset button
 - [ ] Test model textures
 - [ ] Toggle wireframe
+- [ ] Toggle fullscreen
+- [ ] Animate gridlines
+- [ ] Particle effects
+- [ ] Animation in general
+- [ ] Make a logo
+- [ ] Add a gallery
+- [ ] Add an About page
 - [ ] Test skyboxes
 - [ ] Make interaction fool-proof
 - [ ] Test multiple scenes/cameras
