@@ -1,92 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Write Height</title>
-    <link rel="stylesheet" href="./styles/main.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-  </head>
 
-  <body>
-        <div class="wrap-all">
-            
-        </div>
-    <div id="header">
-      <h1>
-        Write Height <span id="bar">|</span>
-        <span id="subhead">Convert any greyscale image to 3D</span>
-      </h1>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Write Height</title>
+  <link rel="stylesheet" href="./styles/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
 
-        <div class="render-container">
+<body>
+  <div class="wrap-all">
+
+  </div>
+  <div id="header">
+    <h1>
+      Write Height <span id="bar">|</span>
+      <span id="subhead">Convert any greyscale image to 3D</span>
+    </h1>
+  </div>
+
+  <div class="render-container">
     <canvas id="renderCanvas"> </canvas>
-        </div>
+  </div>
 
-    <div class="button-group">
-      <form>
-        <br />
-        <label class="custom-upload" for="img">
-          <i class="fa fa-upload" aria-hidden="true"></i>
-          Upload an image
-        </label>
-        <input
-          type="file"
-          id="img"
-          name="img"
-          accept="image/*"
-          onchange="loadFile(event); activateButtons(); meshify();"
-        />
-      </form>
-      <button class="custom-button" onclick="getRndImg(); meshify()">
-        <i class="fa fa-random" aria-hidden="true"></i> New demo image
-      </button>
-    </div>
-    <br /><br />
-    <div id="tail">
-      <div id="images">
-        <img id="output" src="" />
-      </div>
-
-      <div id="about">
-        <p>
-          This tool converts greyscale images into 3D using
-          <a href="https://www.babylonjs.com">Babylon.js</a>. You can rotate (right-mouse/touch)
-          and zoom (pinch/scroll) to inspect the model. Uploaded models can be exported
-          as <kbd>.stl</kbd>, <kbd>.obj</kbd> and <kbd>.glb</kbd> files for your
-          projects. I made this tool to be a free and easy way for beginners to
-          experiment with 3D. View source code on
-          <a href="https://github.com/edibotopic/write-height">Github</a>.
-        </p>
-      </div>
+  <div class="button-group">
+    <form>
+      <br />
+      <label class="custom-upload" for="img">
+        <i class="fa fa-upload" aria-hidden="true"></i>
+        Upload an image
+      </label>
+      <input type="file" id="img" name="img" accept="image/*"
+        onchange="loadFile(event); activateButtons(); meshify();" />
+    </form>
+    <button class="custom-button" onclick="getRndImg(); meshify()">
+      <i class="fa fa-random" aria-hidden="true"></i> New demo image
+    </button>
+  </div>
+  <br /><br />
+  <div id="tail">
+    <div id="images">
+      <img id="output" src="" />
     </div>
 
-    <div id="footer">
-      <a href="https://github.com/edibotopic/write-height">edibotopic | 2022</a>
+    <div id="about">
+      <p>
+        This tool converts greyscale images into 3D using
+        <a href="https://www.babylonjs.com">Babylon.js</a>. You can rotate (right-mouse or finger swipe),
+        zoom (scroll wheel or finger pinch) and pan (left-mouse or two-finger swipe) to inspect the model. Uploaded
+        models can be exported
+        as <kbd>.stl</kbd>, <kbd>.obj</kbd> and <kbd>.glb</kbd> files.
+        I made this tool to be a free and easy way for beginners to
+        experiment with 3D. View source code on
+        <a href="https://github.com/edibotopic/write-height">Github</a>.
+      </p>
     </div>
+  </div>
+</div>
 
-        </div>
+<div id="footer">
+  <a href="https://github.com/edibotopic/write-height">edibotopic | 2022</a>
+</div>
 
-    <script>
-      var loadFile = function (event) {
-        var image = document.getElementById('output')
-        image.src = URL.createObjectURL(event.target.files[0])
-        // var invert = document.getElementById('invert')
-        // invert.src = URL.createObjectURL(event.target.files[0])
-      }
-    </script>
+  <script>
+    var loadFile = function (event) {
+      var image = document.getElementById('output')
+      image.src = URL.createObjectURL(event.target.files[0])
+      // var invert = document.getElementById('invert')
+      // invert.src = URL.createObjectURL(event.target.files[0])
+    }
+  </script>
 
-    <script src="https://cdn.babylonjs.com/babylon.js"></script>
-    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
-    <script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
-    <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
-    <script src="https://cdn.babylonjs.com/materialsLibrary/babylon.gridMaterial.min.js"></script>
-    <script src="https://preview.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
-    <script src="./scripts/imager.js"></script>
-    <script src="./scripts/main.js" defer></script>
-  </body>
+  <script src="https://cdn.babylonjs.com/babylon.js"></script>
+  <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+  <script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
+  <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
+  <script src="https://cdn.babylonjs.com/materialsLibrary/babylon.gridMaterial.min.js"></script>
+  <script src="https://preview.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
+  <script src="./scripts/imager.js"></script>
+  <script src="./scripts/main.js" defer></script>
+</body>
+
 </html>

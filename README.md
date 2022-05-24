@@ -36,6 +36,9 @@ Some of these limitations may be addressed in future versions.
 
 ## Roadmap
 
+- [0] New demo toggle
+- [ ] Transitions for (re)loading
+- [ ] Canvas interaction prompts
 - [ ] Figure out a texturing solution
 - [ ] Sliders for controlling subdivisions, height and depth of model
 - [ ] Comment on image filetypes in readme
@@ -48,7 +51,7 @@ Some of these limitations may be addressed in future versions.
 - [ ] Simple graphic to explain concept
 - [ ] More demos - especially hand-drawn
 - [ ] Gallery
-- [ ] License
+- [x] License
 - [ ] Guide: methods to create heightmaps
 - [ ] More interesting colors/post-processing?
 - [x] More minimal aesthetic

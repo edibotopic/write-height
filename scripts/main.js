@@ -23,19 +23,19 @@ let meshify = () => {
       'CameraArc',
       0,
       0,
-      20,
+      10,
       new BABYLON.Vector3(0, 0, 0),
       scene
     )
 
-    cameraArc.setPosition(new BABYLON.Vector3(10, 20, 10))
+    cameraArc.setPosition(new BABYLON.Vector3(-20.0, 0.7, 40))
     cameraArc.attachControl(canvas, false)
 
     // Camera constraints
     cameraArc.lowerBetaLimit = 0.5
     cameraArc.upperBetaLimit = 1.0
     cameraArc.lowerRadiusLimit = 15
-    cameraArc.upperRadiusLimit = 30
+    cameraArc.upperRadiusLimit = 40
 
     var lightMain = new BABYLON.HemisphericLight(
       'lightMain',
@@ -92,6 +92,7 @@ let meshify = () => {
       // true
     )
     model.position = new BABYLON.Vector3(0, 0, 0)
+    model.rotation = new BABYLON.Vector3(0, Math.PI, 0)
 
     const defaultMaterial = new BABYLON.StandardMaterial(
       'defaultMaterial',
