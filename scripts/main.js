@@ -27,6 +27,8 @@ let meshify = () => {
     cameraArc.upperBetaLimit = 1.0
     cameraArc.lowerRadiusLimit = 15
     cameraArc.upperRadiusLimit = 40
+    // cameraArc.inertia = 0;
+    // cameraArc.panningInertia = 0;
 
     let lightMain = new BABYLON.HemisphericLight(
       'lightMain',
@@ -67,7 +69,7 @@ let meshify = () => {
     gridMaterial.opacity = 0.9
     ground.material = gridMaterial
 
-    let detail = 500
+    let detail = 200
     let model = BABYLON.MeshBuilder.CreateGroundFromHeightMap(
       'gdhm',
       image.src,
