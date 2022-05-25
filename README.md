@@ -36,7 +36,7 @@ Some of these limitations may be addressed in future versions.
 
 ## Roadmap
 
-- [ ] New demo toggle
+- [x] New demo toggle
 - [ ] Transitions for (re)loading
 - [ ] Canvas interaction prompts
 - [ ] Figure out a texturing solution
@@ -53,7 +53,7 @@ Some of these limitations may be addressed in future versions.
 - [ ] Gallery
 - [x] License
 - [ ] Guide: methods to create heightmaps
-- [ ] More interesting colors/post-processing?
+- [ ] Post-processing/animation? 
 - [x] More minimal aesthetic
 
 ## Demos
