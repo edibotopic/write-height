@@ -22,7 +22,7 @@ let oldImg = []
 let imgCount = 0
 
 getRndImg = () => {
-  var rnd = Math.floor(Math.random() * imgs.length)
+  let rnd = Math.floor(Math.random() * imgs.length)
   if (!oldImg[rnd]) {
     document.getElementById('output').src = imgs[rnd]
     oldImg[rnd] = true

@@ -4,22 +4,15 @@ let activateButtons = () => {
   gui = 1
 }
 
-// let step =1;
-//
-// let pulse = (step,extent) => {
-//     step += 1;
-//   return Math.sin(step*extent)
-// }
-
 let meshify = () => {
   const canvas = document.getElementById('renderCanvas')
   const engine = new BABYLON.Engine(canvas, true)
 
-  var createScene = function () {
-    var scene = new BABYLON.Scene(engine)
+  let createScene = () => {
+    let scene = new BABYLON.Scene(engine)
     scene.clearColor = BABYLON.Color3.Black()
 
-    var cameraArc = new BABYLON.ArcRotateCamera(
+    let cameraArc = new BABYLON.ArcRotateCamera(
       'CameraArc',
       0,
       0,
@@ -30,22 +23,20 @@ let meshify = () => {
 
     cameraArc.setPosition(new BABYLON.Vector3(-20.0, 0.7, 40))
     cameraArc.attachControl(canvas, false)
-
-    // Camera constraints
     cameraArc.lowerBetaLimit = 0.5
     cameraArc.upperBetaLimit = 1.0
     cameraArc.lowerRadiusLimit = 15
     cameraArc.upperRadiusLimit = 40
 
-    var lightMain = new BABYLON.HemisphericLight(
+    let lightMain = new BABYLON.HemisphericLight(
       'lightMain',
-      new BABYLON.Vector3(0.2, 0.1, 0.5),
+      new BABYLON.Vector3(0.8, 0.1, 0.5),
       scene
     )
     lightMain.diffuse = new BABYLON.Color3(1, 0.9, 0.9)
     lightMain.intensity = 0.8
 
-    var lightPink = new BABYLON.DirectionalLight(
+    let lightPink = new BABYLON.DirectionalLight(
       'lightPink',
       new BABYLON.Vector3(0.0, -1, 0),
       scene
@@ -53,7 +44,7 @@ let meshify = () => {
     lightPink.specular = new BABYLON.Color3(0.4, 0.0, 0.6)
     lightPink.intensity = 0.2
 
-    var lightBlue = new BABYLON.DirectionalLight(
+    let lightBlue = new BABYLON.DirectionalLight(
       'lightBlue',
       new BABYLON.Vector3(0.5, -0.2, 0),
       scene
@@ -86,7 +77,6 @@ let meshify = () => {
         subdivisions: detail,
         maxHeight: 4,
         minHeight: 0,
-        // colorFilter: new BABYLON.Color3(1,1,1) NOTE: what does this do?
       },
       scene
       // true
@@ -102,12 +92,11 @@ let meshify = () => {
     model.material = defaultMaterial
     model.material.wireframe = false
 
-    //Canvas GUI
     let showButtons = () => {
       if (gui == 1) {
-        var advancedTexture =
+        let advancedTexture =
           BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI('UI')
-        var UiPanel = new BABYLON.GUI.StackPanel()
+        let UiPanel = new BABYLON.GUI.StackPanel()
         UiPanel.width = '110px'
         UiPanel.fontSize = '16px'
         UiPanel.horizontalAlignment =
