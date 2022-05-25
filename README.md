@@ -9,10 +9,10 @@ requiring software downloads or technical know-how.
 
 Click the <kbd>browse</kbd> button to select a file on your phone, tablet or computer.
 The image will then be shown on screen as a 3D render. You can rotate
-around the 3D model by dragging with the left mouse button or by swiping
+around the 3D model by dragging over the model with the left mouse button or by swiping
 across your touchscreen. Zooming is controlled using a scroll-wheel or by 
 pinching on a touchscreen. Panning can be achieved by holding <kbd>ctrl</kbd>
-and the left mouse button or simply the right mouse button.
+and the left mouse button or simply the right mouse button. Arrow keys can also be used to control the camera as long as the model is focused (i.e., it has been clicked).
 
 Once a file is uploaded buttons will appear that allow you to download the 3D file.
 There are three options currently: `.obj`, `.glb` or `.stl`. The `.stl`
@@ -55,6 +55,7 @@ Some of these limitations may be addressed in future versions.
 - [ ] Guide: methods to create heightmaps
 - [ ] Post-processing/animation? 
 - [x] More minimal aesthetic
+- [ ] Better explanation of controls
 
 ## Demos
 
