@@ -37,8 +37,9 @@ Some of these limitations may be addressed in future versions.
 
 - [ ] Optimise responsiveness and accessibility
 - [ ] Improve the documentation
-- [ ] Guidelines/best-practices for making heightmaps
+- [ ] Some guidelines/best-practices for making heightmaps
 - [ ] More examples (preferably made in a documented way)
+- [ ] Better interactivity/discoverability with drawing tools 
 
 ### Known Issues
 
