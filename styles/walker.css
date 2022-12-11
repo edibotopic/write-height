@@ -1,0 +1,16 @@
+body {
+    font-size: 14px;
+    line-height: 1.5;
+    color: violet; 
+    background-color: black;
+    text-align: center;
+    touch-action: none;
+}
+canvas {
+    border: 2px solid violet;
+    background: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+.container {
+    position: relative;
+}
