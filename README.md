@@ -1,8 +1,5 @@
 # Write Height
 
-> **Note**
-> Currently fixing a linking issue on the site...
-
 This is a web app for easily creating 3D meshes from grayscale images.
 
 It was designed to be a simple, free and portable way to create 3D models without
