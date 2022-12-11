@@ -1,5 +1,8 @@
 # Write Height
 
+> **Note:**
+> Not currently optimised for mobile screens
+
 This is a web app for easily creating 3D meshes from grayscale images.
 
 It was designed to be a simple, free and portable way to create 3D models without
@@ -36,6 +39,7 @@ Some of these limitations may be addressed in future versions.
 ## Roadmap
 
 - [ ] Optimise responsiveness and accessibility
+- [ ] Resize all canvas scenes for mobile
 - [ ] Improve the documentation
 - [ ] Some guidelines/best-practices for making heightmaps
 - [ ] More examples (preferably made in a documented way)
@@ -43,7 +47,7 @@ Some of these limitations may be addressed in future versions.
 
 ### Known Issues
 
-- Some scaling issues with the GUI on the 3D scene
+- Some scaling issues with the GUI on the 3D scene in all devices
 - Manually drawn images possibly should have smoothing option
 - Internal links spawn too many windows
 
