@@ -11,18 +11,18 @@
 </head>
 
 <body>
-  <div class="wrap-all">
-
-  </div>
   <div id="header">
     <h1>
       Write Height <span id="bar">|</span>
-      <span id="subhead">Convert any greyscale image to 3D</span>
+      <span id="subhead">3D Models from Grayscale Images</span>
     </h1>
   </div>
 
   <div class="render-container">
-    <canvas id="renderCanvas"> </canvas>
+      <img id="output" src="" />
+      <a id="question" href="/about.html">❔</a>
+
+      <canvas id="renderCanvas"></canvas>
   </div>
 
   <div class="button-group">
@@ -35,30 +35,18 @@
       <input type="file" id="img" name="img" accept="image/*"
         onchange="loadFile(event); activateButtons(); meshify();" />
     </form>
-    <button class="custom-button" onclick="getRndImg(); meshify()">
+    <button class="custom-button" onclick="getRndImg(); activateButtons(); meshify()">
       <i class="fa fa-random" aria-hidden="true"></i> New demo image
     </button>
+    <button class="custom-button" onclick="window.open('/paint.html')">
+      <i class="fa fa-pencil" aria-hidden="true"></i> Draw your image
+    </button>
+    <button class="custom-button" onclick="window.open('/walker.html')">
+      <i class="fa fa-code" aria-hidden="true"></i> Algorithmic image 
+    </button>
   </div>
-  <br /><br />
-  <div id="tail">
-    <div id="images">
-      <img id="output" src="" />
-    </div>
 
-    <div id="about">
-      <p>
-        This tool converts greyscale images into 3D using
-        <a href="https://www.babylonjs.com">Babylon.js</a>. You can rotate (left-mouse or finger swipe),
-        zoom (scroll wheel or finger pinch) and pan (right-mouse or two-finger swipe) to inspect the model. Uploaded
-        models can be exported
-        as <kbd>.stl</kbd>, <kbd>.obj</kbd> and <kbd>.glb</kbd> files.
-        I made this tool to be a free and easy way for beginners to
-        experiment with 3D. View source code on
-        <a href="https://github.com/edibotopic/write-height">Github</a>.
-      </p>
-    </div>
-  </div>
-</div>
+        <br><br><br><br>
 
 <div id="footer">
   <a href="https://github.com/edibotopic/write-height">edibotopic | 2022</a>
@@ -68,8 +56,6 @@
     var loadFile = function (event) {
       var image = document.getElementById('output')
       image.src = URL.createObjectURL(event.target.files[0])
-      // var invert = document.getElementById('invert')
-      // invert.src = URL.createObjectURL(event.target.files[0])
     }
   </script>
 
