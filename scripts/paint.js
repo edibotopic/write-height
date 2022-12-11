@@ -1,6 +1,9 @@
 const canvas = document.getElementById("art");
 const ctx = canvas.getContext("2d");
 
+ctx.canvas.width  = window.innerWidth*0.65;
+ctx.canvas.height = window.innerHeight*0.55;
+
 // Default brush
 ctx.lineCap = "round";
 ctx.lineJoin = "bevel";

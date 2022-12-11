@@ -1,21 +1,21 @@
-const context = document.querySelector('canvas').getContext('2d');
+const ctx = document.querySelector('canvas').getContext('2d');
 const download = document.getElementById('download');
+
+ctx.canvas.width  = window.innerWidth*0.55;
+ctx.canvas.height = window.innerHeight*0.55;
 
 let screen = {
     color: 'black',
     x: 0,
     y: 0,
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: ctx.canvas.width,
+    height: ctx.canvas.height,
 
     draw: function() {
-        context.fillStyle = this.color;
-        context.fillRect(this.x, this.y, this.width, this.height);
+        ctx.fillStyle = this.color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 }
-
-context.canvas.width = screen.width / 1.5;
-context.canvas.height = screen.height / 1.5;
 
 const color_codes = ["#d3d3d3", "#bdbdbd", "#9e9e9e", "#7d7d7d", "#696969", "black", "white"];
 
@@ -29,10 +29,10 @@ class Walker {
     }
 
     draw() {
-        context.beginPath();
-        context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        context.fillStyle = this.color;
-        context.fill();
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
     }
 
     move() {
@@ -66,8 +66,8 @@ class Walker {
 }
 
 let walker = new Walker(
-    screen.width * 0.35,
-    screen.height * 0.35,
+    screen.width * 0.5,
+    screen.height * 0.5,
     6,
     "rgba(205, 205, 255, 0.2)",
     4
@@ -84,10 +84,10 @@ function loop() {
 window.requestAnimationFrame(loop);
 
 download.addEventListener('click', function(evt) {
-    console.log(context.canvas.toDataURL());
+    console.log(ctx.canvas.toDataURL());
     const link = document.createElement('a');
     link.download = 'walker.png';
-    link.href = context.canvas.toDataURL();
+    link.href = ctx.canvas.toDataURL();
     link.click();
     alert("⬇️  walker.png is in your Downloads folder")
     link.delete;
