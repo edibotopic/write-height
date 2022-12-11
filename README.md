@@ -44,7 +44,8 @@ Some of these limitations may be addressed in future versions.
 ### Known Issues
 
 - Some scaling issues with the GUI on the 3D scene
-- Manually drawn images should have smoothing option
+- Manually drawn images possibly should have smoothing option
+- Internal links spawn too many windows
 
 ## Changelog
 
