@@ -1,7 +1,7 @@
 # Write Height
 
-> **Note:**
-> Not currently optimised for mobile screens
+> **Warning:**
+> Bug: Mesh downloads may trigger multiple times  
 
 This is a web app for easily creating 3D meshes from grayscale images.
 
@@ -45,11 +45,16 @@ Some of these limitations may be addressed in future versions.
 - [ ] More examples (preferably made in a documented way)
 - [ ] Better interactivity/discoverability with drawing tools 
 
+
+### Known Bugs
+
+- When downloading mesh user may be prompted to download multiple times
+- GUI over 3D scene does not scale well
+
 ### Known Issues
 
-- Some scaling issues with the GUI on the 3D scene in all devices
-- Manually drawn images possibly should have smoothing option
-- Internal links spawn too many windows
+- Manually drawn images should have smoothing option for better mesh quality
+- Internal links spawn too many windows (arguably)
 
 ## Changelog
 
