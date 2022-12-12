@@ -157,14 +157,14 @@ let meshify = () => {
                 buttonGLB.addControl(buttonBackGroundGLB)
                 UiPanel.addControl(buttonGLB)
 
-                let buttonSTL = BABYLON.GUI.Button.CreateSimpleButton('but111', 'STL')
+                let buttonSTL = BABYLON.GUI.Button.CreateSimpleButton('but222', 'STL')
                 buttonSTL.paddingTop = '10px'
                 buttonSTL.width = '50px'
                 buttonSTL.height = '50px'
                 buttonSTL.color = 'white'
                 buttonSTL.background = ''
                 buttonSTL.onPointerDownObservable.add(function() {
-                    const data_stl = BABYLON.STLExport.CreateSTL([model])
+                    const data_stl = BABYLON.STLExport.CreateSTL([model],false)
                     const a = document.createElement('a')
 
                     a.href = window.URL.createObjectURL(
@@ -182,7 +182,7 @@ let meshify = () => {
                 buttonSTL.addControl(buttonBackGroundSTL)
                 UiPanel.addControl(buttonSTL)
 
-                let buttonOBJ = BABYLON.GUI.Button.CreateSimpleButton('but111', 'OBJ')
+                let buttonOBJ = BABYLON.GUI.Button.CreateSimpleButton('but333', 'OBJ')
                 buttonOBJ.paddingTop = '10px'
                 buttonOBJ.width = '50px'
                 buttonOBJ.height = '50px'
