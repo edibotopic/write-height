@@ -20,8 +20,11 @@ canvas {
     top: 5px;
     left: 10px;
 }
+.buttons_basic {
+    font-size: 14px;
+}
 #reset {
-    margin: 10px 10px 0 10px;
+    margin: 10px 10px 0 0px;
     float: left;
     cursor: pointer;
     color: #7f8c8d;
@@ -39,6 +42,16 @@ canvas {
     float: left;
     margin: 12px 5px 0 0;
     cursor: pointer;
+    text-align: center;
+}
+#size {
+    color: #7f8c8d;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    float: left;
+    margin: 12px 5px 0 0;
+    cursor: default;
     text-align: center;
 }
 .options {

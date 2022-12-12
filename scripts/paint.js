@@ -1,45 +1,68 @@
+/* TODO: works well | square function not working (who cares?) | results in probably more spikiness */
+/* TODO: make (default) option? */
 const canvas = document.getElementById("art");
 const ctx = canvas.getContext("2d");
 
-ctx.canvas.width  = window.innerWidth*0.65;
-ctx.canvas.height = window.innerHeight*0.55;
+ctx.canvas.width = window.innerWidth * 0.65;
+ctx.canvas.height = window.innerHeight * 0.55;
 
-// Default brush
-ctx.lineCap = "round";
-ctx.lineJoin = "bevel";
-ctx.strokeStyle = "white";
-ctx.lineWidth = 20;
+let x = 0;
+let y = 0;
+let lastX;
+let lastY;
+let ColorStop1 = "rgba(250,250,250,1)";
+let ColorStop0 = "rgba(250,250,250,0)";
 
-// Click events
-let getMousePos = (canvas, evt) => {
-    let rect = canvas.getBoundingClientRect();
-    return {
-        x: evt.clientX - rect.left,
-        y: evt.clientY - rect.top
-    };
-}
+const circle = Math.PI;
+const slant = Math.sin(90);
 
-let mouseMove = (evt) => {
-    let mousePos = getMousePos(canvas, evt);
-    ctx.lineTo(mousePos.x, mousePos.y);
-    ctx.stroke();
-}
+let pen = circle;
 
-canvas.addEventListener("mousedown" || "click", (evt) => {
-    let mousePos = getMousePos(canvas, evt);
+function draw(x, y, w) {
+    let gradient = ctx.createRadialGradient(x, y, 0, x, y, w);
+    gradient.addColorStop(0, ColorStop1);
+    gradient.addColorStop(1, ColorStop0);
+
     ctx.beginPath();
-    ctx.moveTo(mousePos.x, mousePos.y);
-    evt.preventDefault();
-    canvas.addEventListener("mousemove", mouseMove, false);
+    ctx.arc(x, y, w, 0, 2 * pen);
+    ctx.fillStyle = gradient;
+    ctx.fill();
+    ctx.closePath();
+};
+
+let w = 15;
+/* let radius = w / 2; */
+let drawing = false;
+
+canvas.addEventListener("mousedown", (e) => {
+    drawing = true;
+    lastX = e.offsetX;
+    lastY = e.offsetY;
+    draw(lastX, lastY, w, 100, 100, 100, 0.5);
 });
 
-canvas.addEventListener(
-    "mouseup",
-    () => {
-        canvas.removeEventListener("mousemove", mouseMove, false);
-    },
-    false
-);
+canvas.addEventListener("mouseup", (e) => {
+    drawing = false;
+});
+
+canvas.addEventListener("mousemove", (e) => {
+    if (drawing == true) {
+        x = e.offsetX;
+        y = e.offsetY;
+
+        // the distance the mouse has moved since last mousemove event
+        let distanceMoved = Math.sqrt(Math.pow(lastX - x, 2) + Math.pow(lastY - y, 2));
+
+        // for each pixel distance, draw a circle on the line connecting the two points
+        // to get a continous line.
+        for (i = 0; i < distanceMoved; i += 1) {
+            let s = i / distanceMoved;
+            draw(lastX * s + x * (1 - s), lastY * s + y * (1 - s), w, 100, 100, 100, 0.5);
+        }
+        lastX = x;
+        lastY = y;
+    };
+});
 
 document.getElementById("reset").addEventListener(
     "click",
@@ -49,17 +72,20 @@ document.getElementById("reset").addEventListener(
     false
 );
 
-//TODO: inconsistent naming
+//TODO: inconsistent naming NOTE: create two lists of codes for gradient
 const colors = ["gray0", "gray1", "gray2", "gray3", "gray4", "black", "white"];
-const color_codes = ["#d3d3d3", "#bdbdbd", "#9e9e9e", "#7d7d7d", "#696969", "black", "white"];
+const color_codes = ["rgba(211,211,211,", "rgba(189,189,189,", "rgba(158,158,158,", "rgba(125,125,125,", "rgb(105,105,105,", "rgb(0,0,0,", "rgb(250,250,250,"];
 const sizeNames = ["default", "thin", "medium", "thick", "huge"];
-const size_values = [8, 15, 20, 25, 40];
+const size_values = [4, 8, 15, 20, 40];
 
 let listener = (i) => {
     document.getElementById(colors[i]).addEventListener(
         "click",
         () => {
-            ctx.strokeStyle = color_codes[i];
+            ColorStop0 = color_codes[i] + "0)";
+            console.log(ColorStop0)
+            ColorStop1 = color_codes[i] + "1)";
+            console.log(ColorStop1)
         },
         false
     );
@@ -69,7 +95,7 @@ let fontSizes = (i) => {
     document.getElementById(sizeNames[i]).addEventListener(
         "click",
         () => {
-            ctx.lineWidth = size_values[i];
+            w = size_values[i];
         },
         false
     );
@@ -103,9 +129,9 @@ let square = () => {
 
     check_square.addEventListener('change', function() {
         if (check_square.checked) {
-            ctx.lineCap = "square";
+           pen=slant; 
         } else {
-            ctx.lineCap = "round";
+           pen=circle;
         }
     }
     )
@@ -117,8 +143,8 @@ let foam = () => {
 
     check_foam.addEventListener('change', function() {
         if (check_foam.checked) {
-            ctx.shadowColor = 'rgba(200,200,200,1.0)';
-            ctx.shadowBlur = 20;
+            ctx.shadowColor = 'rgba(200,200,200,0.6)';
+            ctx.shadowBlur = 40;
         } else {
             ctx.shadowBlur = 0;
         }
