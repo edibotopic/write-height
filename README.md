@@ -36,24 +36,27 @@ software should alert you to any issues with the model relating to ground suppor
 
 Some of these limitations may be addressed in future versions.
 
-## Roadmap
+## To-do
 
 - [ ] Optimise responsiveness and accessibility
-- [ ] Resize all canvas scenes for mobile
+- [x] Resize all canvas scenes for mobile
 - [ ] Improve the documentation
 - [ ] Some guidelines/best-practices for making heightmaps
 - [ ] More examples (preferably made in a documented way)
 - [ ] Better interactivity/discoverability with drawing tools 
-
+- [ ] Option to hide UI
+- [ ] More mesh interaction (walk/fly, clean-up)
+- [ ] Accessible explanation/animation on home screen
+- [ ] Fix problem with downloads being triggered multiple times
+- [ ] Stop GUI elements being highlighted as text in drawing tools
 
 ### Known Bugs
 
 - When downloading mesh user may be prompted to download multiple times
-- GUI over 3D scene does not scale well
+- Drawing tool interface and resizing not well optimised
 
 ### Known Issues
 
-- Manually drawn images should have smoothing option for better mesh quality
 - Internal links spawn too many windows (arguably)
 
 ## Changelog
