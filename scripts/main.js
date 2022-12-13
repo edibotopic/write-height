@@ -1,8 +1,8 @@
-let gui = 0
+let gui = 1;
 
-let activateButtons = () => {
-    gui = 1
-}
+/* let hideUI = () => { */
+/*     gui = 0; */
+/* } */
 
 let meshify = () => {
     const canvas = document.getElementById('renderCanvas')
@@ -164,7 +164,7 @@ let meshify = () => {
                 buttonSTL.color = 'white'
                 buttonSTL.background = ''
                 buttonSTL.onPointerDownObservable.add(function() {
-                    const data_stl = BABYLON.STLExport.CreateSTL([model],false)
+                    const data_stl = BABYLON.STLExport.CreateSTL([model], false)
                     const a = document.createElement('a')
 
                     a.href = window.URL.createObjectURL(
@@ -207,7 +207,7 @@ let meshify = () => {
                 buttonOBJ.addControl(buttonBackGroundOBJ)
                 UiPanel.addControl(buttonOBJ)
             } else if (gui == 0) {
-                console.log('No file uploaded')
+                console.log("no GUI")
             }
         }
 

@@ -83,8 +83,8 @@ h1 {
   position: absolute;
   width: 15vh;
   height: 15vh;
-  margin-left: 90%;
-  margin-top: 5%;
+  margin-left: 85%;
+  margin-top: 6%;
   font-size: 24px;
 }
 
@@ -130,67 +130,33 @@ input[type='file'] {
 }
 
 .button-group {
-  width: 90vw;
+  width: 75vw;
   margin: 0 auto;
 }
 
-.custom-upload {
-  width: 50%;
+.action-icons {
+  width: 20%;
   float: left;
-  font-size: 2.0vh;
+  font-size: 4.4vh;
   text-align: center;
   font-family: 'archivo', sans-serif;
   font-weight: 360;
-  background-color: black;
-  border: 1px solid #ccc;
   display: inline-block;
   padding: 6px 12px;
   cursor: pointer;
   transition-duration: 0.5s;
 }
 
-.custom-button {
-  width: 50%;
-  float: left;
-  font-size: 2.0vh;
-  text-align: center;
-  font-family: 'archivo', sans-serif;
-  font-weight: 360;
-  color: white;
-  background-color: black;
-  border: 1px solid #ccc;
-  display: inline-block;
-  padding: 6px 12px;
-  cursor: pointer;
-  transition-duration: 0.5s;
-}
-
-.custom-button:hover {
-  width: 50%;
-  font-size: 2.0vh;
-  text-align: center;
-  font-family: 'archivo', sans-serif;
-  font-weight: 360;
-  color: white;
-  background-color: black;
-  border: 1px solid #ccc;
-  display: inline-block;
-  padding: 6px 12px;
-  cursor: pointer;
-  filter: invert(100%);
-}
-
-.custom-upload:hover {
-  width: 50%;
-  font-size: 2.0vh;
+.action-icons:hover {
+  width: 20%;
+  font-size: 3.8vh;
   text-align: center;
   font-family: 'archivo', sans-serif;
   font-weight: 300;
-  border: 1px solid #ccc;
   display: inline-block;
   padding: 6px 12px;
   cursor: pointer;
-  filter: invert(100%);
+  color: violet;
 }
 
 #footer {
