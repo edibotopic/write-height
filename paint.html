@@ -8,34 +8,41 @@
     <link href="./styles/main.css" rel="stylesheet" />
   </head>
   <body>
-    <br /><br /><br />
+    <div class="top_panel">
+      <div id="buttons">
+        <a id="reset">Clear</a>
 
-    <div id="buttons">
-      <a id="reset">Clear</a>
-
-      <div id="gray0" class="color"></div>
-      <div id="gray1" class="color"></div>
-      <div id="gray2" class="color"></div>
-      <div id="gray3" class="color"></div>
-      <div id="gray4" class="color"></div>
-      <div id="black" class="color"></div>
-      <div id="white" class="color"></div>
-      <br>
-      <div id="size">Size: </div>
-      <div id="default" class="color"><a>XS</a></div>
-      <div id="thin" class="color"><a>S</a></div>
-      <div id="medium" class="color"><a>M</a></div>
-      <div id="thick" class="color"><a>L</a></div>
-      <div id="huge" class="color"><a>XL</a></div>
+        <div id="gray0" class="color"></div>
+        <div id="gray1" class="color"></div>
+        <div id="gray2" class="color"></div>
+        <div id="gray3" class="color"></div>
+        <div id="gray4" class="color"></div>
+        <div id="black" class="color"></div>
+        <div id="white" class="color"></div>
+        <br />
+        <div id="size">Size:</div>
+        <div id="default" class="color"><a>XS</a></div>
+        <div id="thin" class="color"><a>S</a></div>
+        <div id="medium" class="color"><a>M</a></div>
+        <div id="thick" class="color"><a>L</a></div>
+        <div id="huge" class="color"><a>XL</a></div>
+      </div>
     </div>
 
-    <br><br>
+    <br /><br />
     <div class="container">
       <canvas width="600px" height="400px" id="art"></canvas>
     </div>
 
     <button class="buttons_basic" id="download">Save</button>
-    <button class="buttons_basic" id="home" onclick="window.open('https://edibotopic.github.io/write-height/index.html')">Home</button>
+    <button
+      class="buttons_basic"
+      id="home"
+      onclick="window.open('https://edibotopic.github.io/write-height/index.html')"
+    >
+      Home
+    </button>
+
     <br />
     <br />
 
@@ -58,7 +65,13 @@
         /></label>
       </div>
     </div>
-
+    <br />
+    <small
+      >Not working well on your device?
+      <a href="https://edibotopic.github.io/write-height/paint_alt.html"
+        >Try this instead.</a
+      ></small
+    >
     <script src="./scripts/paint.js"></script>
   </body>
 </html>
