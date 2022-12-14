@@ -61,6 +61,7 @@ h1 {
   outline: none;
   position: relative;
   z-index: 1;
+  cursor: grab;
   touch-action: none;
   user-select: none;
   -webkit-user-select: none; /*Safari*/

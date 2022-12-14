@@ -115,6 +115,7 @@ let meshify = () => {
                 picker.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
                 picker.left = "2%";
                 picker.top = "35%";
+                picker.hoverCursor = "crosshair";
                 picker.onValueChangedObservable.add(function(value) {
                     defaultMaterial.diffuseColor.copyFrom(value);
                 });
@@ -206,6 +207,11 @@ let meshify = () => {
 
                 buttonOBJ.addControl(buttonBackGroundOBJ)
                 UiPanel.addControl(buttonOBJ)
+
+
+                buttonGLB.hoverCursor = "pointer";
+                buttonOBJ.hoverCursor = "pointer";
+                buttonSTL.hoverCursor = "pointer";
             } else if (gui == 0) {
                 console.log("no GUI")
             }
