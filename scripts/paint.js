@@ -1,5 +1,3 @@
-/* TODO: works well | square function not working (who cares?) | results in probably more spikiness */
-/* TODO: make (default) option? */
 const canvas = document.getElementById("art");
 const ctx = canvas.getContext("2d");
 
