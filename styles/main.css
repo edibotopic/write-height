@@ -22,14 +22,14 @@ body {
 }
 
 h1 {
-  font-size: 4vh;
+  font-size: 3.2vh;
   text-align: left;
   font-family: 'Archivo', sans-serif;
   font-weight: 500;
 }
 
 #bar {
-  font-size: 4vh;
+  font-size: 3.2h;
   text-align: left;
   font-family: 'archivo', sans-serif;
   font-weight: 400;
@@ -37,7 +37,7 @@ h1 {
 }
 
 #subhead {
-  font-size: 3vh;
+  font-size: 2vh;
   text-align: left;
   font-family: 'archivo', sans-serif;
   font-weight: 200;
@@ -55,7 +55,7 @@ h1 {
 
 #renderCanvas {
   width: 100%;
-  height: 75vh;
+  height: 70vh;
   border: 4px solid white;
   border-radius: 25px;
   outline: none;
