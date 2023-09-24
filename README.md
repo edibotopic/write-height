@@ -1,27 +1,27 @@
 # Write Height
 
 > **Caution:**
-> Mesh export feature is in Beta and needs work
+> Mesh export feature is in Beta and needs work.
+>
 > Clicking export may trigger multiple downloads  
 
 This is a web app for easily creating 3D meshes from grayscale images.
 
-It was designed to be a simple, free and portable way to create 3D models without
-requiring software downloads or (much) technical know-how.
+It was designed to be a simple, free and portable way to view and create 3D models without
+needing to download software or use complex tools.
 
 ## How it Works
 
-Click the <kbd>Upload an image</kbd> button to select a file on your phone, tablet or computer.
-The image will then be shown on screen as a 3D render. You can rotate
+You can display a random model or select a grayscale image from your phone, tablet or computer.
+Images are automatically converted into 3D models. You can rotate
 around the 3D model by dragging over the model with the left mouse button or by swiping
 across your touchscreen. Zooming is controlled using a scroll-wheel or by 
 pinching on a touchscreen. Panning can be achieved by holding <kbd>ctrl</kbd>
 and the left mouse button or simply the right mouse button. Arrow keys can also be used to control the camera as long as the model is focused (i.e., it has been clicked).
 
-Once a file is uploaded buttons will appear that allow you to download the 3D file.
-There are three options currently: `.obj`, `.glb` or `.stl`. The `.stl`
-option is probably preferred if you are working on a 3D printing project
-while the other filetypes are commonly used in 3D graphics and game design.
+Currently the models can be downloaded in `.stl` format.
+This is a beta feature and has an annoying behaviour where multiple
+model files are downloaded and not just the model on the screen.
 
 Much of the underlying 3D functionality is provided by the excellent
 [Babylon.js](https://www.babylonjs.com) engine, which provides functions for heightmapping, rendering and file creation.
