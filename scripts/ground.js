@@ -1,3 +1,5 @@
+'use strict'
+
 let groundCreate = (scene) => {
   let ground = BABYLON.MeshBuilder.CreatePlane(
     'grid',

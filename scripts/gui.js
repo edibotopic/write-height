@@ -1,3 +1,5 @@
+'use strict'
+
 let guiCreate = (defaultMaterial, model, scene) => {
   let advancedTexture =
     BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI('UI')

@@ -1,3 +1,5 @@
+'use strict'
+
 let lightsCreate = (scene) => {
     let lightMain = new BABYLON.HemisphericLight(
       'lightMain',

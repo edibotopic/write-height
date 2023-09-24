@@ -1,3 +1,5 @@
+'use strict'
+
 let mapCreate = (image, scene) => {
   let detail = 250
   let model = BABYLON.MeshBuilder.CreateGroundFromHeightMap(

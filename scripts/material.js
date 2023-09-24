@@ -1,3 +1,5 @@
+'use strict'
+
 let materialCreate = (model, scene) => {
     const defaultMaterial = new BABYLON.StandardMaterial(
       'defaultMaterial',

@@ -1,3 +1,5 @@
+'use strict'
+
 let cameraCreate = (canvas, scene) => {
   let cameraArc = new BABYLON.ArcRotateCamera(
     'CameraArc',
