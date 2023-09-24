@@ -1,7 +1,7 @@
 'use strict'
 
 let groundCreate = (scene) => {
-  let ground = BABYLON.MeshBuilder.CreatePlane(
+  const ground = BABYLON.MeshBuilder.CreatePlane(
     'grid',
     { width: 100, height: 100, subdivisions: 10 },
     scene
@@ -12,7 +12,7 @@ let groundCreate = (scene) => {
   const gridMaterial = new BABYLON.GridMaterial('gridMaterial', scene)
   gridMaterial.mainColor = new BABYLON.Color3(0.8, 0.4, 0.8)
   gridMaterial.lineColor = new BABYLON.Color3(2, 1, 2)
-  gridMaterial.opacity = 0.9
+  gridMaterial.opacity = 0.8
   ground.material = gridMaterial
 
   return ground
