@@ -219,66 +219,6 @@ let meshify = () => {
 
         showButtons()
 
-        // TODO: implement mesh customisation
-        // var panel = new BABYLON.GUI.StackPanel()
-        // panel.width = '550px'
-        // panel.fontSize = '14px'
-        // panel.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT
-        // panel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER
-        // advancedTexture.addControl(panel)
-        //
-        // let checkbox = new BABYLON.GUI.Checkbox()
-        // checkbox.width = '20px'
-        // checkbox.height = '20px'
-        // checkbox.isChecked = false;
-        // checkbox.color = 'orange'
-        // checkbox.onIsCheckedChangedObservable.add(function () {
-        //   if (checkbox.isChecked = true) {
-        //         model.material.wireframe = true}
-        //         else {model.material.wireframe = false}
-        // })
-        //
-        // var panelForCheckbox = BABYLON.GUI.Control.AddHeader(
-        //   checkbox,
-        //   'Wire-frame',
-        //   '180px',
-        //   { isHorizontal: true, controlFirst: true }
-        // )
-        // panelForCheckbox.color = 'white'
-        // panelForCheckbox.height = '20px'
-        // panelForCheckbox.horizontalAlignment =
-        //   BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT
-        // panel.addControl(panelForCheckbox)
-        //
-        // let header = new BABYLON.GUI.TextBlock()
-        // header.text = 'Change detail'
-        // header.height = '40px'
-        // header.color = 'white'
-        // header.textHorizontalAlignment =
-        //   BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT
-        // header.marginTop = '10px'
-        // panel.addControl(header)
-        //
-        // let slider
-        // createSlider = () => {
-        //   slider = new BABYLON.GUI.Slider()
-        //   slider.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT
-        //   slider.minimum = 100
-        //   slider.maximum = 400
-        //   slider.color = 'orange'
-        //   slider.value = detail
-        //   slider.height = '20px'
-        //   slider.width = '200px'
-        //   slider.onValueChangedObservable.add(function (value) {
-        //     header.text = 'Sub-divisions: ' + value
-        //     model.subdivisions = value
-        //   })
-        //   return slider
-        // }
-        //
-        // createSlider()
-        // panel.addControl(slider)
-
         return scene
     }
 
