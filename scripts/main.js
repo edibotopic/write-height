@@ -1,40 +1,37 @@
 'use strict'
 
+const canvas = canvasCreate()
+const engine = engineCreate()
+const scene = sceneCreate(engine)
+
+cameraCreate(canvas, scene)
+lightsCreate(scene)
+
+let rotate = false
+
 let meshify = () => {
-  const canvas = document.getElementById('renderCanvas')
-  const engine = new BABYLON.Engine(canvas, true)
+  const image = document.getElementById('output')
 
-  let createScene = () => {
-    let scene = new BABYLON.Scene(engine)
-    scene.clearColor = BABYLON.Color3.Black()
+  imageCreate()
 
-    let image = document.getElementById('output')
+  const model = mapCreate(image, scene)
+  const defaultMaterial = materialCreate(model, scene)
+  guiCreate(defaultMaterial, model, scene)
 
-    imageCreate()
-
-    cameraCreate(canvas, scene)
-
-    lightsCreate(scene)
-
-    groundCreate(scene)
-
-    let model = mapCreate(image, scene)
-
-    let defaultMaterial = materialCreate(model, scene)
-
-    guiCreate(defaultMaterial, model, scene)
-
-    return scene
-  }
-
-  const scene = createScene()
-
-  engine.runRenderLoop(function () {
-    scene.render()
-  })
-  window.addEventListener('resize', function () {
-    engine.resize()
-  })
+  groundCreate(scene)
 }
+
+engine.runRenderLoop(() => {
+  scene.render()
+  if (rotate == true) {
+    scene.meshes[0].rotation.y += 0.0009
+  } else if (rotate == false) {
+    scene.meshes[0].rotation.y += 0.0
+  }
+})
+
+window.addEventListener('resize', () => {
+  engine.resize()
+})
 
 meshify()
