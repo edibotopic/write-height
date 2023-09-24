@@ -1,6 +1,6 @@
 'use strict'
 
-let guiCreate = (defaultMaterial, scene) => {
+let guiCreate = (defaultMaterial, model) => {
     let advancedTexture =
         BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI('UI')
     let UiPanel = new BABYLON.GUI.StackPanel()
@@ -37,7 +37,7 @@ let guiCreate = (defaultMaterial, scene) => {
     buttonSTL.color = 'white'
     buttonSTL.background = ''
     buttonSTL.onPointerDownObservable.add(() => {
-        const data_stl = BABYLON.STLExport.CreateSTL(scene.meshes[0], false)
+        const data_stl = BABYLON.STLExport.CreateSTL([model], false)
         const a = document.createElement('a')
         a.href = window.URL.createObjectURL(
             new Blob([data_stl], { type: 'text/plain' })
