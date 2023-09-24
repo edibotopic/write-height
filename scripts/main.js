@@ -10,6 +10,8 @@ let meshify = () => {
 
     let image = document.getElementById('output')
 
+    imageCreate()
+
     cameraCreate(canvas, scene)
 
     lightsCreate(scene)
