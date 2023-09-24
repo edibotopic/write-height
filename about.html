@@ -19,8 +19,7 @@
     <div id="about">
       <p>
         This application converts grayscale images into 3D models that can be
-        viewed and downloaded in different file formats. Simple drawing tools
-        are also provided for creating the images.
+        viewed and downloaded.
       </p>
 
       <h2>Controls</h2>
@@ -33,16 +32,13 @@
       <h2>Images</h2>
       <p>
         A set of example images are included for inspiration. Original images
-        can be created using any decent drawing or image-editing application. A
-        minimal drawing tool is included that can be used to draw and download a
-        grayscale image. In addition, grayscale images can be algorithmically
-        generated, although currently only one algorithm is provided.
+        can be created using any decent drawing or image-editing application
+        and then uploaded.
       </p>
 
       <h2>Exporting</h2>
       <p>
-        3D models can be exported as <kbd>.stl</kbd>, <kbd>.obj</kbd> and
-        <kbd>.glb</kbd> files for use in other 3D software or 3D printing.
+        3D models can be exported as <kbd>.stl</kbd> files (BETA) for use in other 3D software or 3D printing.
         Model topology may need to be cleaned up for your specific application.
       </p>
 
@@ -55,13 +51,14 @@
 
       <h2>Implementation</h2>
       <p>
-        The application is largely written using Vanilla JavaScript and relies on
+        The application is written using Vanilla JavaScript and relies on
         <a href="https://www.babylonjs.com">Babylon.js</a> for 3D rendering.
       </p>
 
       <h2>Plans</h2>
       <p>
-        Better mobile (re)sizing | Add heightmap preparation tips | new examples | more drawing algorithms | add dates to downloads | more mesh customisation | test models on 3D printer | accessibility improvements
+        There is a memory issue that results in multiple downloads being triggered
+        during model export.
       </p>
       <br /><br />
 
