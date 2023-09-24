@@ -1,8 +1,15 @@
 'use strict'
 
 let mapCreate = (image, scene) => {
-  let detail = 250
-  let model = BABYLON.MeshBuilder.CreateGroundFromHeightMap(
+  while (scene.meshes.length) {
+    let mesh = scene.meshes[0]
+    mesh.dispose()
+    mesh = null
+  }
+
+  const detail = 250
+
+  const model = BABYLON.MeshBuilder.CreateGroundFromHeightMap(
     'gdhm',
     image.src,
     {
