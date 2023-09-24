@@ -55,7 +55,7 @@ h1 {
 
 #renderCanvas {
   width: 100%;
-  height: 450px;
+  height: 75vh;
   border: 4px solid white;
   border-radius: 25px;
   outline: none;
