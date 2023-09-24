@@ -1,14 +1,13 @@
 # Write Height
 
-> **Warning:**
-> Bug: Mesh downloads may trigger multiple times  
+> **Caution:**
+> Mesh export feature is in Beta and needs work
+> Clicking export may trigger multiple downloads  
 
 This is a web app for easily creating 3D meshes from grayscale images.
 
 It was designed to be a simple, free and portable way to create 3D models without
 requiring software downloads or (much) technical know-how.
-
-The latest version implements two simple tools to generate images that can be uploaded to the app, one by manually drawing an image and the other by algorithmically generating an image.
 
 ## How it Works
 
@@ -34,32 +33,18 @@ you may want to inspect the topology of the model to ensure there is a low
 polygon count (games) or no non-manifold geometry (printing). Your 3D printing
 software should alert you to any issues with the model relating to ground support.
 
-Some of these limitations may be addressed in future versions.
-
 ## To-do
 
-- [ ] Optimise responsiveness and accessibility
-- [x] Resize all canvas scenes for mobile
-- [ ] Improve the documentation
-- [ ] Some guidelines/best-practices for making heightmaps
-- [ ] More examples (preferably made in a documented way)
-- [ ] Better interactivity/discoverability with drawing tools 
-- [ ] Option to hide UI
-- [ ] More mesh interaction (walk/fly, clean-up)
-- [ ] Accessible explanation/animation on home screen
-- [ ] Fix problem with downloads being triggered multiple times
-- [ ] Stop GUI elements being highlighted as text in drawing tools
-
-### Known Bugs
-
-- When downloading mesh user may be prompted to download multiple times
-- Drawing tool interface and resizing not well optimised
-
-### Known Issues
-
-- Internal links spawn too many windows (arguably)
+- [ ] Fix bug where multiple downloads trigger
 
 ## Changelog
+
+### v0.1.1
+
+- Added turntable toggle
+- Refactored scripts into separate files
+- Removed primitive drawing features
+- Minor style changes
 
 ### v0.1.0
 
