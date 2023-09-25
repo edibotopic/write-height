@@ -7,11 +7,12 @@ const scene = sceneCreate(engine)
 cameraCreate(canvas, scene)
 lightsCreate(scene)
 
-let rotate = false
+let rotate
 
 let meshify = () => {
-  const image = document.getElementById('output')
+  rotate = false
 
+  const image = document.getElementById('output')
   imageCreate()
 
   const model = mapCreate(image, scene)

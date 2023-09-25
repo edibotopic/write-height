@@ -9,7 +9,6 @@ let materialCreate = (model, scene) => {
     const COLOR = new BABYLON.Color3(0.8, 0.8, 0.8)
     defaultMaterial.diffuseColor = COLOR
     model.material = defaultMaterial
-    model.material.wireframe = false
 
     return defaultMaterial
 }
