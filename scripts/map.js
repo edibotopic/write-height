@@ -2,9 +2,9 @@
 
 let mapCreate = (image, scene) => {
   while (scene.meshes.length) {
-    let mesh = scene.meshes[0]
-    mesh.dispose()
-    mesh = null
+    let model = scene.meshes[0]
+    model.dispose(false, true)
+    model = null
   }
 
   const detail = 250
