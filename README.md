@@ -39,6 +39,13 @@ software should alert you to any issues with the model relating to ground suppor
 
 ## Changelog
 
+### v0.1.2
+
+- Added wireframe toggle
+- Added grid toggle
+- Dispose GUI on repaint
+- Minor rendering changes
+
 ### v0.1.1
 
 - Added turntable toggle
