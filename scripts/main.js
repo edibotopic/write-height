@@ -23,9 +23,9 @@ let meshify = () => {
 
 engine.runRenderLoop(() => {
   scene.render()
-  if (rotate == true) {
+  if (rotate == true && scene.meshes[0]) {
     scene.meshes[0].rotation.y += 0.0009
-  } else if (rotate == false) {
+  } else if (rotate == false && scene.meshes[0]) {
     scene.meshes[0].rotation.y += 0.0
   }
 })
