@@ -1,10 +1,5 @@
 # Write Height
 
-> **Caution:**
-> Mesh export feature is in Beta and needs work.
->
-> Clicking export may trigger multiple downloads  
-
 This is a web app for easily creating 3D meshes from grayscale images.
 
 It was designed to be a simple, free and portable way to view and create 3D models without
@@ -19,9 +14,7 @@ across your touchscreen. Zooming is controlled using a scroll-wheel or by
 pinching on a touchscreen. Panning can be achieved by holding <kbd>ctrl</kbd>
 and the left mouse button or simply the right mouse button. Arrow keys can also be used to control the camera as long as the model is focused (i.e., it has been clicked).
 
-Currently the models can be downloaded in `.stl` format.
-This is a beta feature and has an annoying behaviour where multiple
-model files are downloaded and not just the model on the screen.
+Currently the models can be downloaded in `.stl` format only.
 
 Much of the underlying 3D functionality is provided by the excellent
 [Babylon.js](https://www.babylonjs.com) engine, which provides functions for heightmapping, rendering and file creation.
@@ -35,12 +28,15 @@ software should alert you to any issues with the model relating to ground suppor
 
 ## To-do
 
-- [ ] Fix bug where multiple downloads trigger
+- [X] Fix bug where multiple downloads trigger
+- [ ] Allow level of detail in model to be adjusted 
+- [ ] Exported models should ideally lay flat
 
 ## Changelog
 
 ### v0.1.2
 
+- Multiple download bug fixed
 - Added wireframe toggle
 - Added grid toggle
 - Dispose GUI on repaint
