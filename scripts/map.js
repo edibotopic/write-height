@@ -13,7 +13,7 @@ let mapCreate = (image, scene) => {
     {
       width: 20,
       height: 20,
-      subdivisions: 100,
+      subdivisions: 200,
       maxHeight: 4,
       minHeight: 0,
     },
