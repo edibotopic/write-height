@@ -15,10 +15,10 @@ let mapCreate = (image, scene) => {
       height: 20,
       subdivisions: 200,
       maxHeight: 4,
-      minHeight: 0,
+      minHeight: 0
     },
-    scene
-    //true
+    scene,
+    false
   )
 
   return model
