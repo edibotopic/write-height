@@ -44,6 +44,9 @@ let guiCreate = (defaultMaterial, model) => {
   buttonSTL.color = 'white'
   buttonSTL.background = ''
   buttonSTL.onPointerDownObservable.add(() => {
+    /* NOTE: for y-up software model needs to be rotated*/
+    /* z-up is currently the default */
+    /* model.rotation.x = Math.PI/2; */
     const data_stl = BABYLON.STLExport.CreateSTL([model], false)
     const a = document.createElement('a')
     a.href = window.URL.createObjectURL(
@@ -54,6 +57,7 @@ let guiCreate = (defaultMaterial, model) => {
     a.click()
     document.body.removeChild(a)
     alert('YourMesh.stl is in your downloads 👍')
+    /* model.rotation.x = -Math.PI/2; */
   })
 
   let headerTurn = new BABYLON.GUI.TextBlock('chk223', 'checkbox')
