@@ -36,7 +36,7 @@ let guiCreate = (defaultMaterial, model) => {
   buttonBackGroundSTL.alpha = 0.5
   buttonBackGroundSTL.zIndex = -1
 
-  let buttonSTL = BABYLON.GUI.Button.CreateSimpleButton('but222', 'STL (beta)')
+  let buttonSTL = BABYLON.GUI.Button.CreateSimpleButton('but222', '⤓ STL')
   buttonSTL.paddingTop = '10px'
   buttonSTL.width = '95px'
   buttonSTL.height = '40px'
