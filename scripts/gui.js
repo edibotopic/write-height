@@ -23,7 +23,7 @@ let guiCreate = (defaultMaterial, model) => {
   ExportPanel.fontSize = '14px'
   ExportPanel.horizontalAlignment =
     BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT
-  ExportPanel.top = '-35%'
+  ExportPanel.top = '-28%'
   advancedTexture.addControl(ExportPanel)
 
   let picker = new BABYLON.GUI.ColorPicker()
@@ -305,7 +305,7 @@ let guiCreate = (defaultMaterial, model) => {
   buttonOBJ.addControl(buttonBackGroundOBJ)
   ExportPanel.addControl(buttonOBJ)
   buttonOBJ.hoverCursor = 'pointer'
-  ExportPanel.spacing = 5
+  ExportPanel.spacing = 2
 
   return (
     RenderPanel,
