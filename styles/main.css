@@ -69,7 +69,7 @@ h1 {
 }
 
 #output {
-  border: 1px violet solid;
+  border: 2px violet solid;
   z-index: 5; 
   position: absolute;
   width: 13vh;
