@@ -9,37 +9,54 @@ Much of the underlying 3D functionality is provided by the excellent
 
 ## How it Works
 
-You can display a random model or select a greyscale image from your phone, tablet or computer.
-Images are automatically converted into 3D models. You can rotate
-around the 3D model by dragging over the model with the left mouse button or by swiping
-across your touchscreen. Zooming is controlled using a scroll-wheel or by 
-pinching on a touchscreen. Panning can be achieved by holding <kbd>ctrl</kbd>
-and the left mouse button or simply the right mouse button. Arrow keys can also be used to control the camera as long as the model is focused (i.e., it has been clicked).
+### Model Generation and Viewing
 
-Currently the models can be downloaded in `.stl` format only.
-Models default to a z-up orientation.
-If you are using y-up software then you will need to rotate the model
-for further use.
+You can generate a random model or select a greyscale image from your phone, tablet or computer.
+Images will be automatically converted into 3D models. 
+
+The way the model is rendered can be controlled, with toggles for
+`turntable`, `wireframe` and `hide grid`, as well as a colour picker.
+
+Models can be rotated by dragging over the model with the left mouse button or by swiping
+on a touchscreen. 
+Zooming is controlled using a scroll-wheel or by pinching on a touchscreen. 
+Panning can be achieved by dragging with the right mouse button. 
+Arrow keys can also be used to control the camera as long as the model is focused (i.e., it has been clicked).
+
+### Exporting Models
+
+Currently the models can be exported to `.stl`, `.obj` and `.glb` formats.
+When tested with Blender, all models were imported in the correct
+orientation.
+In other software models may need to be rotated into place.
 
 ## Limitations
 
 Currently the level of detail is fixed, with a default number of
-subdivisions for each mesh set to 200.
+subdivisions for each mesh set to 200, which is quite dense.
 
-The rendered objects may not be optimal for specific uses without further editing. For example,
-you may want to inspect the topology of the model to ensure there is a low
-polygon count (games) or no non-manifold geometry (printing). Your 3D printing
-software should alert you to any issues with the model relating to ground support.
+The rendered objects may not be optimal for specific uses without further editing. 
+For example, you may want to inspect the topology of the model to ensure there is a low
+polygon count (games) or no non-manifold geometry (printing). 
+Your 3D printing software should alert you to any issues with the model relating to ground support.
 
 ## To-do
 
 - [X] Fix bug where multiple downloads trigger
 - [ ] Allow level of detail in model to be adjusted 
-- [ ] Test option to adjust to y-up orientation for export
-- [ ] Reintroduce `.glb` and `.obj` exports
-- [ ] Find alternative to popup for download success
+- [ ] Test option to adjust orientation (y-up/z-up) for export
+- [X] Reintroduce `.glb` and `.obj` exports
+- [ ] Improve feedback and file-naming on export
+- [ ] Persist toggled options between model loadings
+- [ ] More and better examples
 
 ## Changelog
+
+### v0.1.3
+
+- All major export formats added
+- Better GUI styling
+- Code cleanup
 
 ### v0.1.2
 
@@ -64,7 +81,8 @@ software should alert you to any issues with the model relating to ground suppor
 
 ## Similar Tools
 
-Ephtracy's [aerialod](https://ephtracy.github.io/index.html?page=aerialod) is an amazing piece of software for rendering high quality 3D models from images and offers a high degree of customisation. The software is Windows-only and does not support mobile devices.
+Ephtracy's [aerialod](https://ephtracy.github.io/index.html?page=aerialod) is an amazing piece of software for rendering high quality 3D models from images and offers a high degree of customisation. 
+The software is Windows-only and does not support mobile devices.
 
 ## Note
 
