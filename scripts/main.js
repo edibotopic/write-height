@@ -17,7 +17,8 @@ let meshify = () => {
 
   const model = mapCreate(image, scene)
   const defaultMaterial = materialCreate(model, scene)
-  guiCreate(defaultMaterial, model, scene)
+
+  guiCreate(defaultMaterial, model, image)
 
   groundCreate(scene)
 }

@@ -1,6 +1,6 @@
 'use strict'
 
-let guiCreate = (defaultMaterial, model) => {
+let guiCreate = (defaultMaterial, model, image) => {
   while (scene.getTextureByName('UI')) {
     let UI = scene.getTextureByName('UI')
     UI.dispose(false, true)
@@ -31,7 +31,7 @@ let guiCreate = (defaultMaterial, model) => {
   picker.height = '28%'
   picker.width = '28%'
   picker.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT
-  picker.left = '2%'
+  picker.left = 15 
   picker.top = '30%'
   picker.hoverCursor = 'crosshair'
   picker.onValueChangedObservable.add((value) => {
@@ -49,7 +49,7 @@ let guiCreate = (defaultMaterial, model) => {
   let buttonSTL = BABYLON.GUI.Button.CreateSimpleButton('but222', '⤓ STL')
   buttonSTL.paddingTop = '10px'
   buttonSTL.width = '95px'
-  buttonSTL.height = '40px'
+  buttonSTL.height = '30px'
   buttonSTL.left = '-7px'
   buttonSTL.color = 'violet'
   buttonSTL.highlightColor = 'violet'
@@ -93,7 +93,7 @@ let guiCreate = (defaultMaterial, model) => {
   buttonGLB.paddingTop = '5px'
   buttonGLB.paddingBottom = '5px'
   buttonGLB.width = '95px'
-  buttonGLB.height = '40px'
+  buttonGLB.height = '30px'
   buttonGLB.left = '-7px'
   buttonGLB.color = 'violet'
   buttonGLB.highlightColor = 'violet'
@@ -137,7 +137,7 @@ let guiCreate = (defaultMaterial, model) => {
   let buttonOBJ = BABYLON.GUI.Button.CreateSimpleButton('but333', '⤓ OBJ')
   buttonOBJ.paddingBottom = '10px'
   buttonOBJ.width = '95px'
-  buttonOBJ.height = '40px'
+  buttonOBJ.height = '30px'
   buttonOBJ.left = '-7px'
   buttonOBJ.color = 'violet'
   buttonOBJ.highlightColor = 'violet'
@@ -307,6 +307,16 @@ let guiCreate = (defaultMaterial, model) => {
   buttonOBJ.hoverCursor = 'pointer'
   ExportPanel.spacing = 2
 
+  const img = image.src
+  const source = new BABYLON.GUI.Image('image', img)
+  source.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT
+  source.width = '80px'
+  source.height = '80px'
+  source.top = '-28%'
+  source.left = 15 
+  source.alpha = 0.5
+  advancedTexture.addControl(source)
+
   return (
     RenderPanel,
     ExportPanel,
@@ -319,6 +329,7 @@ let guiCreate = (defaultMaterial, model) => {
     headerGrid,
     checkTurn,
     checkWire,
-    checkGrid
+    checkGrid,
+    source
   )
 }
