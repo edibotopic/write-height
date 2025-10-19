@@ -126,30 +126,38 @@ input[type='file'] {
 }
 
 .button-group {
-  width: 75vw;
+  width: 90vw;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.button-group form {
+  flex: 0 0 25%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
 }
 
 .action-icons {
-  width: 33%;
-  float: left;
+  flex: 0 0 25%;
   font-size: 4.4vh;
   text-align: center;
   font-family: 'archivo', sans-serif;
   font-weight: 360;
-  display: inline-block;
   padding: 6px 12px;
   cursor: pointer;
   transition-duration: 0.5s;
 }
 
 .action-icons:hover {
-  width: 33%;
   font-size: 3.8vh;
   text-align: center;
   font-family: 'archivo', sans-serif;
   font-weight: 300;
-  display: inline-block;
   padding: 6px 12px;
   cursor: pointer;
   color: violet;

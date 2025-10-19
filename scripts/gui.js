@@ -372,6 +372,7 @@ let guiCreate = (defaultMaterial, model, image) => {
     }
   })
 
+
   let exportBackGround = new BABYLON.GUI.Rectangle('')
   exportBackGround.thickness = 0
   exportBackGround.background = 'black'

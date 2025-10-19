@@ -12,6 +12,7 @@ var subdivisions = 200
 var wireframeState = false
 var gridState = true
 var turntableState = false
+var invertHeightmap = false
 var currentColor = new BABYLON.Color3(0.8, 0.8, 0.8)
 var currentRotationY = 0
 var currentModel = null

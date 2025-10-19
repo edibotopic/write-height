@@ -14,8 +14,8 @@ let mapCreate = (image, scene, subdivisions = 200) => {
       width: 20,
       height: 20,
       subdivisions: subdivisions,
-      maxHeight: 4,
-      minHeight: 0
+      maxHeight: invertHeightmap ? 0 : 4,
+      minHeight: invertHeightmap ? 4 : 0
     },
     scene,
     false

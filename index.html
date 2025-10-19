@@ -41,6 +41,13 @@
 
     <div class="button-group">
       <label
+        title="invert heightmap"
+        class="action-icons"
+        id="invert"
+      >
+        <i class="fa fa-arrows-v" aria-hidden="true"></i>
+      </label>
+      <label
         title="show a random model"
         class="action-icons"
         id="refresh"
@@ -73,6 +80,21 @@
         const image = document.getElementById('output')
         image.src = URL.createObjectURL(event.target.files[0])
       }
+
+      // Invert toggle
+      window.addEventListener('DOMContentLoaded', () => {
+        const invertBtn = document.getElementById('invert')
+        invertBtn.addEventListener('click', () => {
+          invertHeightmap = !invertHeightmap
+          // Toggle visual state
+          if (invertHeightmap) {
+            invertBtn.style.color = '#ee82ee'
+          } else {
+            invertBtn.style.color = ''
+          }
+          regenerateMesh()
+        })
+      })
     </script>
 
     <script src="https://cdn.babylonjs.com/babylon.js"></script>
