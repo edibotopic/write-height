@@ -1,21 +1,23 @@
 # Write Height
 
-This is a web app for easily creating 3D meshes from greyscale images.
+This is a web tool for easily creating 3D meshes from greyscale images.
 It was designed to be a free and portable way to view and create 3D models without
 the need to download software or use complex tools.
 
 Much of the underlying 3D functionality is provided by the excellent
-[Babylon.js](https://www.babylonjs.com) engine, which provides functions for heightmapping, rendering and file creation.
+[Babylon.js](https://www.babylonjs.com) engine, which provides functions for
+heightmapping, rendering and file creation.
 
 ## How it Works
 
 ### Model Generation and Viewing
 
-You can generate a random model or select a greyscale image from your phone, tablet or computer.
-Images will be automatically converted into 3D models. 
+You can generate a random model or upload a greyscale image from your phone, tablet or computer.
+Images can be dragged and dropped onto the canvas, if you prefer.
+After an image is added, it will automatically be converted into a 3D model. 
 
 The way the model is rendered can be controlled, with toggles for
-`turntable`, `wireframe` and `hide grid`, as well as a colour picker.
+`turntable`, `wireframe` and `show grid`, as well as colouring.
 
 Models can be rotated by dragging over the model with the left mouse button or by swiping
 on a touchscreen. 
@@ -30,27 +32,26 @@ When tested with Blender, all models were imported in the correct
 orientation.
 In other software models may need to be rotated into place.
 
-## Limitations
-
-Currently the level of detail is fixed, with a default number of
-subdivisions for each mesh set to 200, which is quite dense.
-
-The rendered objects may not be optimal for specific uses without further editing. 
-For example, you may want to inspect the topology of the model to ensure there is a low
-polygon count (games) or no non-manifold geometry (printing). 
-Your 3D printing software should alert you to any issues with the model relating to ground support.
-
 ## To-do
 
 - [X] Fix bug where multiple downloads trigger
-- [ ] Allow level of detail in model to be adjusted 
+- [X] Allow level of detail in model to be adjusted 
 - [ ] Test option to adjust orientation (y-up/z-up) for export
 - [X] Reintroduce `.glb` and `.obj` exports
 - [ ] Improve feedback and file-naming on export
-- [ ] Persist toggled options between model loadings
+- [X] Persist toggled options between model loadings
 - [ ] More and better examples
 
 ## Changelog
+
+### v0.2
+
+- Invert model option
+- Drag and drop images to canvas
+- Level of detail control
+- Model edits through filters (smooth, contrast, brightness)
+- Vertex colouring option
+- Reload current model button
 
 ### v0.1.3
 
@@ -86,11 +87,8 @@ The software is Windows-only and does not support mobile devices.
 
 ## Note
 
-I obtained some of the example heightmaps from the
-internet and assume they are free to
-use. If you recognise an image of
-yours that you would like me to
-credit or remove please let me
-know.
+I obtained some of the example heightmaps from the internet and assume they are
+free to use. If you recognise an image of yours that you would like me to credit
+or remove please let me know.
 
 I plan on replacing some or all of them with original images.
