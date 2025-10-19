@@ -10,6 +10,14 @@ let guiCreate = (defaultMaterial, model, image) => {
   let advancedTexture =
     BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI('UI')
 
+  let LODPanel = new BABYLON.GUI.StackPanel()
+  LODPanel.width = '120px'
+  LODPanel.fontSize = '14px'
+  LODPanel.horizontalAlignment =
+    BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT
+  LODPanel.top = '10%'
+  advancedTexture.addControl(LODPanel)
+
   let RenderPanel = new BABYLON.GUI.StackPanel()
   RenderPanel.width = '120px'
   RenderPanel.fontSize = '14px'
@@ -27,15 +35,16 @@ let guiCreate = (defaultMaterial, model, image) => {
   advancedTexture.addControl(ExportPanel)
 
   let picker = new BABYLON.GUI.ColorPicker()
-  picker.value = defaultMaterial.diffuseColor
+  picker.value = currentColor
   picker.height = '28%'
   picker.width = '28%'
   picker.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT
-  picker.left = 15 
+  picker.left = 15
   picker.top = '30%'
   picker.hoverCursor = 'crosshair'
   picker.onValueChangedObservable.add((value) => {
     defaultMaterial.diffuseColor.copyFrom(value)
+    currentColor.copyFrom(value)
   })
   advancedTexture.addControl(picker)
 
@@ -173,6 +182,93 @@ let guiCreate = (defaultMaterial, model, image) => {
     alert('YourMesh.obj is in your downloads 👍')
   })
 
+  let headerLOD = new BABYLON.GUI.TextBlock('lodHeader', 'LOD Header')
+  headerLOD.paddingTop = '10px'
+  headerLOD.height = '25px'
+  headerLOD.text = 'Detail'
+  headerLOD.width = '90px'
+  headerLOD.left = '-10px'
+  headerLOD.color = 'violet'
+  headerLOD.fontWeight = 'bold'
+  headerLOD.fontSize = '14'
+  headerLOD.textHorizontalAlignment =
+    BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT
+
+  let lodLow = BABYLON.GUI.Button.CreateSimpleButton('lodLow', 'Low')
+  lodLow.width = '95px'
+  lodLow.height = '30px'
+  lodLow.left = '-7px'
+  lodLow.color = subdivisions === 100 ? 'white' : 'violet'
+  lodLow.background = subdivisions === 100 ? 'violet' : ''
+  lodLow.thickness = 2
+  lodLow.fontSize = 14
+  lodLow.fontWeight = 'bold'
+  lodLow.paddingTop = '5px'
+  lodLow.hoverCursor = 'pointer'
+  lodLow.onPointerDownObservable.add(() => {
+    subdivisions = 100
+    lodLow.color = 'white'
+    lodLow.background = 'violet'
+    lodMed.color = 'violet'
+    lodMed.background = ''
+    lodHigh.color = 'violet'
+    lodHigh.background = ''
+    regenerateMesh()
+  })
+
+  let lodMed = BABYLON.GUI.Button.CreateSimpleButton('lodMed', 'Med')
+  lodMed.width = '95px'
+  lodMed.height = '30px'
+  lodMed.left = '-7px'
+  lodMed.color = subdivisions === 200 ? 'white' : 'violet'
+  lodMed.background = subdivisions === 200 ? 'violet' : ''
+  lodMed.thickness = 2
+  lodMed.fontSize = 14
+  lodMed.fontWeight = 'bold'
+  lodMed.paddingTop = '2px'
+  lodMed.paddingBottom = '2px'
+  lodMed.hoverCursor = 'pointer'
+  lodMed.onPointerDownObservable.add(() => {
+    subdivisions = 200
+    lodLow.color = 'violet'
+    lodLow.background = ''
+    lodMed.color = 'white'
+    lodMed.background = 'violet'
+    lodHigh.color = 'violet'
+    lodHigh.background = ''
+    regenerateMesh()
+  })
+
+  let lodHigh = BABYLON.GUI.Button.CreateSimpleButton('lodHigh', 'High')
+  lodHigh.width = '95px'
+  lodHigh.height = '30px'
+  lodHigh.left = '-7px'
+  lodHigh.color = subdivisions === 400 ? 'white' : 'violet'
+  lodHigh.background = subdivisions === 400 ? 'violet' : ''
+  lodHigh.thickness = 2
+  lodHigh.fontSize = 14
+  lodHigh.fontWeight = 'bold'
+  lodHigh.paddingBottom = '5px'
+  lodHigh.hoverCursor = 'pointer'
+  lodHigh.onPointerDownObservable.add(() => {
+    subdivisions = 400
+    lodLow.color = 'violet'
+    lodLow.background = ''
+    lodMed.color = 'violet'
+    lodMed.background = ''
+    lodHigh.color = 'white'
+    lodHigh.background = 'violet'
+    regenerateMesh()
+  })
+
+  let lodBackGround = new BABYLON.GUI.Rectangle('')
+  lodBackGround.thickness = 0
+  lodBackGround.background = 'black'
+  lodBackGround.alpha = 0.5
+  lodBackGround.paddingRight = 14
+  lodBackGround.cornerRadius = 10
+  lodBackGround.zIndex = -2
+
   let headerTurn = new BABYLON.GUI.TextBlock('chk223', 'checkbox')
   headerTurn.paddingTop = '-50px'
   headerTurn.text = 'Turntable'
@@ -199,11 +295,14 @@ let guiCreate = (defaultMaterial, model, image) => {
     buttonOBJ.background = 'black'
   }
 
+  checkTurn.isChecked = turntableState
   checkTurn.onIsCheckedChangedObservable.add((value) => {
     if (value == true) {
       rotate = true
+      turntableState = true
     } else {
       rotate = false
+      turntableState = false
     }
   })
 
@@ -224,15 +323,21 @@ let guiCreate = (defaultMaterial, model, image) => {
   checkWire.left = '30px'
   checkWire.paddingTop = '2.5px'
   checkWire.paddingBottom = '2.5px'
-  checkWire.isChecked = false
+  checkWire.isChecked = wireframeState
   checkWire.color = 'violet'
   checkWire.textHorizontalAlignment =
     BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT
   checkWire.onIsCheckedChangedObservable.add((value) => {
     if (value == true) {
-      model.material.wireframe = true
+      wireframeState = true
+      if (currentModel && currentModel.material) {
+        currentModel.material.wireframe = true
+      }
     } else {
-      model.material.wireframe = false
+      wireframeState = false
+      if (currentModel && currentModel.material) {
+        currentModel.material.wireframe = false
+      }
     }
   })
 
@@ -252,18 +357,18 @@ let guiCreate = (defaultMaterial, model, image) => {
   checkGrid.height = '30px'
   checkGrid.left = '30px'
   checkGrid.paddingBottom = 10
-  checkGrid.isChecked = false
+  checkGrid.isChecked = !gridState
   checkGrid.color = 'violet'
   checkGrid.textHorizontalAlignment =
     BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT
   checkGrid.onIsCheckedChangedObservable.add((value) => {
     const ground = scene.getMeshByName('grid')
     if (value == true) {
-      console.log(value)
       ground.setEnabled(false)
+      gridState = false
     } else {
-      console.log(value)
       ground.setEnabled(true)
+      gridState = true
     }
   })
 
@@ -282,6 +387,13 @@ let guiCreate = (defaultMaterial, model, image) => {
   renderBackGround.paddingRight = 14
   renderBackGround.cornerRadius = 10
   renderBackGround.zIndex = -2
+
+  LODPanel.addControl(lodBackGround)
+  LODPanel.addControl(headerLOD)
+  LODPanel.addControl(lodLow)
+  LODPanel.addControl(lodMed)
+  LODPanel.addControl(lodHigh)
+  LODPanel.spacing = 2
 
   RenderPanel.addControl(renderBackGround)
   RenderPanel.addControl(headerTurn)

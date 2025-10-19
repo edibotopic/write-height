@@ -8,27 +8,69 @@ cameraCreate(canvas, scene)
 lightsCreate(scene)
 
 let rotate
+var subdivisions = 200
+var wireframeState = false
+var gridState = true
+var turntableState = false
+var currentColor = new BABYLON.Color3(0.8, 0.8, 0.8)
+var currentRotationY = 0
+var currentModel = null
+
+let regenerateMesh = () => {
+  // Save current rotation from the heightmap model (not the grid!)
+  const existingModel = scene.getMeshByName('gdhm')
+  if (existingModel) {
+    currentRotationY = existingModel.rotation.y
+  }
+
+  const image = document.getElementById('output')
+  const model = mapCreate(image, scene, subdivisions)
+  const defaultMaterial = materialCreate(model, scene)
+
+  // Store model globally so checkboxes can reference it
+  currentModel = model
+
+  // Reapply saved states
+  defaultMaterial.diffuseColor = currentColor
+  model.material.wireframe = wireframeState
+  model.rotation.y = currentRotationY
+  rotate = turntableState
+
+  // Ensure grid exists
+  let ground = scene.getMeshByName('grid')
+  if (!ground) {
+    ground = groundCreate(scene)
+  }
+  ground.setEnabled(gridState)
+
+  return { model, defaultMaterial }
+}
 
 let meshify = () => {
-  rotate = false
+  // Save current rotation from the heightmap model before loading new image
+  const existingModel = scene.getMeshByName('gdhm')
+  if (existingModel) {
+    currentRotationY = existingModel.rotation.y
+  }
 
+  // Don't reset states - preserve user preferences
   const image = document.getElementById('output')
   imageCreate()
 
-  const model = mapCreate(image, scene)
-  const defaultMaterial = materialCreate(model, scene)
+  const { model, defaultMaterial } = regenerateMesh()
+
+  // Store model globally
+  currentModel = model
 
   guiCreate(defaultMaterial, model, image)
 
-  groundCreate(scene)
+  // Grid is created in regenerateMesh if needed, no need to create again
 }
 
 engine.runRenderLoop(() => {
   scene.render()
-  if (rotate == true && scene.meshes[0]) {
-    scene.meshes[0].rotation.y += 0.0009
-  } else if (rotate == false && scene.meshes[0]) {
-    scene.meshes[0].rotation.y += 0.0
+  if (rotate == true && currentModel) {
+    currentModel.rotation.y += 0.0009
   }
 })
 

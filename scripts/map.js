@@ -1,10 +1,10 @@
 'use strict'
 
-let mapCreate = (image, scene) => {
-  while (scene.meshes.length) {
-    let model = scene.meshes[0]
-    model.dispose(false, true)
-    model = null
+let mapCreate = (image, scene, subdivisions = 200) => {
+  // Only dispose the heightmap model, not the grid
+  const existingModel = scene.getMeshByName('gdhm')
+  if (existingModel) {
+    existingModel.dispose(false, true)
   }
 
   const model = BABYLON.MeshBuilder.CreateGroundFromHeightMap(
@@ -13,7 +13,7 @@ let mapCreate = (image, scene) => {
     {
       width: 20,
       height: 20,
-      subdivisions: 200,
+      subdivisions: subdivisions,
       maxHeight: 4,
       minHeight: 0
     },
