@@ -10,7 +10,7 @@ lightsCreate(scene)
 let rotate
 var subdivisions = 200
 var wireframeState = false
-var gridState = true
+var gridState = false
 var turntableState = false
 var invertHeightmap = false
 var heightGradientState = false

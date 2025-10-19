@@ -346,7 +346,7 @@ let guiCreate = (defaultMaterial, model, image) => {
 
   let headerGrid = new BABYLON.GUI.TextBlock('chk224', 'checkbox')
   headerGrid.paddingTop = '54px'
-  headerGrid.text = 'Hide Grid'
+  headerGrid.text = 'Show Grid'
   headerGrid.width = '70px'
   headerGrid.left = '-20px'
   headerGrid.color = 'violet'
@@ -360,18 +360,18 @@ let guiCreate = (defaultMaterial, model, image) => {
   checkGrid.height = '30px'
   checkGrid.left = '30px'
   checkGrid.paddingBottom = 10
-  checkGrid.isChecked = !gridState
+  checkGrid.isChecked = gridState
   checkGrid.color = 'violet'
   checkGrid.textHorizontalAlignment =
     BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT
   checkGrid.onIsCheckedChangedObservable.add((value) => {
     const ground = scene.getMeshByName('grid')
     if (value == true) {
-      ground.setEnabled(false)
-      gridState = false
-    } else {
       ground.setEnabled(true)
       gridState = true
+    } else {
+      ground.setEnabled(false)
+      gridState = false
     }
   })
 
