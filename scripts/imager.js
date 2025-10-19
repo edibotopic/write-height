@@ -12,6 +12,9 @@ let imageCreate = () => {
   refresh.addEventListener('click', () => {
     getRndImg()
     meshify()
+    if (typeof updateButtonStates === 'function') {
+      updateButtonStates()
+    }
   })
 
   // Builtin image examples
@@ -38,6 +41,11 @@ let imageCreate = () => {
     if (!oldImg[rnd] && !currentSrc.includes(imgs[rnd])) {
       document.getElementById('output').src = imgs[rnd]
       resetOriginalImage()
+      heightGradientState = false
+      const heightGradientBtn = document.getElementById('heightGradient')
+      if (heightGradientBtn) {
+        heightGradientBtn.classList.remove('disabled')
+      }
       oldImg[rnd] = true
       imgCount++
       if (imgCount === imgs.length) {

@@ -51,7 +51,15 @@ window.addEventListener('DOMContentLoaded', () => {
         const image = document.getElementById('output')
         image.src = URL.createObjectURL(file)
         resetOriginalImage()
+        heightGradientState = false
+        const heightGradientBtn = document.getElementById('heightGradient')
+        if (heightGradientBtn) {
+          heightGradientBtn.classList.remove('disabled')
+        }
         meshify()
+        if (typeof updateButtonStates === 'function') {
+          updateButtonStates()
+        }
       }
     }
   }

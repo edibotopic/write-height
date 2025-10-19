@@ -10,13 +10,16 @@ let guiCreate = (defaultMaterial, model, image) => {
   let advancedTexture =
     BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI('UI')
 
-  let LODPanel = new BABYLON.GUI.StackPanel()
+  let LODPanel = new BABYLON.GUI.StackPanel('LODPanel')
   LODPanel.width = '120px'
   LODPanel.fontSize = '14px'
   LODPanel.horizontalAlignment =
     BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT
   LODPanel.top = '10%'
   advancedTexture.addControl(LODPanel)
+
+  // Store globally so we can hide/show it
+  currentLODPanel = LODPanel
 
   let RenderPanel = new BABYLON.GUI.StackPanel()
   RenderPanel.width = '120px'

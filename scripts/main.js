@@ -13,9 +13,11 @@ var wireframeState = false
 var gridState = true
 var turntableState = false
 var invertHeightmap = false
+var heightGradientState = false
 var currentColor = new BABYLON.Color3(0.8, 0.8, 0.8)
 var currentRotationY = 0
 var currentModel = null
+var currentLODPanel = null
 
 let regenerateMesh = () => {
   // Save current rotation from the heightmap model (not the grid!)
@@ -36,6 +38,11 @@ let regenerateMesh = () => {
   model.material.wireframe = wireframeState
   model.rotation.y = currentRotationY
   rotate = turntableState
+
+  // Apply height gradient if enabled
+  if (heightGradientState) {
+    applyHeightGradient(model)
+  }
 
   // Ensure grid exists
   let ground = scene.getMeshByName('grid')
