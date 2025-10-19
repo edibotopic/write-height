@@ -37,6 +37,7 @@ let imageCreate = () => {
     // Don't pick the current image or previously shown images
     if (!oldImg[rnd] && !currentSrc.includes(imgs[rnd])) {
       document.getElementById('output').src = imgs[rnd]
+      resetOriginalImage()
       oldImg[rnd] = true
       imgCount++
       if (imgCount === imgs.length) {

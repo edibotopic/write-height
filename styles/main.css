@@ -163,6 +163,60 @@ input[type='file'] {
   color: violet;
 }
 
+.filter-control {
+  width: 90vw;
+  margin: 20px auto;
+  text-align: center;
+  color: white;
+  font-size: 14px;
+}
+
+.filter-control details {
+  background: rgba(238, 130, 238, 0.1);
+  border: 2px solid RGB(238, 130, 238);
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.filter-control summary {
+  font-size: 16px;
+  font-weight: bold;
+  color: RGB(238, 130, 238);
+  cursor: pointer;
+  user-select: none;
+  padding: 5px;
+}
+
+.filter-control summary:hover {
+  color: RGB(255, 150, 255);
+}
+
+.filter-sliders {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.filter-item label {
+  font-size: 14px;
+  color: white;
+}
+
+.filter-control input[type="range"] {
+  width: 100%;
+  margin: 0;
+  cursor: pointer;
+  accent-color: RGB(238, 130, 238);
+}
+
 #footer {
   position: sticky;
   /* background-color: RGB(250, 250, 250, 0.2); */

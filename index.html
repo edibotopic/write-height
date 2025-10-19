@@ -75,10 +75,31 @@
       </label>
     </div>
 
+    <div class="filter-control">
+      <details>
+        <summary>Experimental Filters</summary>
+        <div class="filter-sliders">
+          <div class="filter-item">
+            <label for="blurSlider">Smooth: <span id="blurValue">0</span></label>
+            <input type="range" id="blurSlider" min="0" max="10" value="0" step="1">
+          </div>
+          <div class="filter-item">
+            <label for="contrastSlider">Contrast: <span id="contrastValue">100%</span></label>
+            <input type="range" id="contrastSlider" min="0" max="200" value="100" step="5">
+          </div>
+          <div class="filter-item">
+            <label for="brightnessSlider">Brightness: <span id="brightnessValue">100%</span></label>
+            <input type="range" id="brightnessSlider" min="0" max="200" value="100" step="5">
+          </div>
+        </div>
+      </details>
+    </div>
+
     <script>
       const loadFile = function (event) {
         const image = document.getElementById('output')
         image.src = URL.createObjectURL(event.target.files[0])
+        resetOriginalImage()
       }
 
       // Invert toggle
@@ -105,6 +126,7 @@
     <script src="https://preview.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
     <!-- <script src="https://preview.babylonjs.com/inspector/babylon.inspector.bundle.js"></script> -->
     <script src="./scripts/dragdrop.js"></script>
+    <script src="./scripts/filters.js"></script>
     <script src="./scripts/imager.js"></script>
     <script src="./scripts/init.js"></script>
     <script src="./scripts/camera.js"></script>

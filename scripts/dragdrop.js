@@ -50,6 +50,7 @@ window.addEventListener('DOMContentLoaded', () => {
       if (file.type.startsWith('image/')) {
         const image = document.getElementById('output')
         image.src = URL.createObjectURL(file)
+        resetOriginalImage()
         meshify()
       }
     }
