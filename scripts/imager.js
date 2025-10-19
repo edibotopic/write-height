@@ -31,8 +31,11 @@ let imageCreate = () => {
   let imgCount = 0
 
   let getRndImg = () => {
+    const currentSrc = document.getElementById('output').src
     let rnd = Math.floor(Math.random() * imgs.length)
-    if (!oldImg[rnd]) {
+
+    // Don't pick the current image or previously shown images
+    if (!oldImg[rnd] && !currentSrc.includes(imgs[rnd])) {
       document.getElementById('output').src = imgs[rnd]
       oldImg[rnd] = true
       imgCount++
