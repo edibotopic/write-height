@@ -37,19 +37,19 @@ let guiCreate = (defaultMaterial, model, image) => {
   ExportPanel.top = '-28%'
   advancedTexture.addControl(ExportPanel)
 
-  let picker = new BABYLON.GUI.ColorPicker()
-  picker.value = currentColor
-  picker.height = '28%'
-  picker.width = '28%'
-  picker.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT
-  picker.left = 15
-  picker.top = '30%'
-  picker.hoverCursor = 'crosshair'
-  picker.onValueChangedObservable.add((value) => {
-    defaultMaterial.diffuseColor.copyFrom(value)
-    currentColor.copyFrom(value)
-  })
-  advancedTexture.addControl(picker)
+  // let picker = new BABYLON.GUI.ColorPicker()
+  // picker.value = currentColor
+  // picker.height = '28%'
+  // picker.width = '28%'
+  // picker.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT
+  // picker.left = 15
+  // picker.top = '30%'
+  // picker.hoverCursor = 'crosshair'
+  // picker.onValueChangedObservable.add((value) => {
+  //   defaultMaterial.diffuseColor.copyFrom(value)
+  //   currentColor.copyFrom(value)
+  // })
+  // advancedTexture.addControl(picker)
 
   let buttonBackGroundSTL = new BABYLON.GUI.Rectangle('')
   buttonBackGroundSTL.color = ''
@@ -436,7 +436,7 @@ let guiCreate = (defaultMaterial, model, image) => {
   return (
     RenderPanel,
     ExportPanel,
-    picker,
+    // picker,
     buttonSTL,
     buttonGLB,
     buttonOBJ,
