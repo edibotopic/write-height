@@ -1,7 +1,22 @@
 import { defineConfig } from 'vite';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
   base: './',
+  plugins: [
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'demos/*',
+          dest: 'demos'
+        },
+        {
+          src: 'assets/*',
+          dest: 'assets'
+        }
+      ]
+    })
+  ],
   build: {
     outDir: 'docs',
     emptyOutDir: true,
