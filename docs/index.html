@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WriteHeight | Convert Greyscale Images to 3D Models</title>
+    <meta name="description" content="Easily make interactive 3D models from greyscale images and heightmaps">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon-GceTZv7T.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32-BQPf-jii.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16-B8JKL9D-.png">
+    <link rel="manifest" href="./assets/site-CeA35fED.webmanifest">
+    <link rel="mask-icon" href="data:image/svg+xml,%3c?xml%20version='1.0'%20standalone='no'?%3e%3c!DOCTYPE%20svg%20PUBLIC%20'-//W3C//DTD%20SVG%2020010904//EN'%20'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'%3e%3csvg%20version='1.0'%20xmlns='http://www.w3.org/2000/svg'%20width='260.000000pt'%20height='260.000000pt'%20viewBox='0%200%20260.000000%20260.000000'%20preserveAspectRatio='xMidYMid%20meet'%3e%3cmetadata%3e%20Created%20by%20potrace%201.14,%20written%20by%20Peter%20Selinger%202001-2017%20%3c/metadata%3e%3cg%20transform='translate(0.000000,260.000000)%20scale(0.100000,-0.100000)'%20fill='%23000000'%20stroke='none'%3e%3cpath%20d='M0%201300%20l0%20-1300%201300%200%201300%200%200%201300%200%201300%20-1300%200%20-1300%200%200%20-1300z%20m1480%20581%20c186%20-58%20343%20-217%20403%20-406%2031%20-98%2031%20-252%200%20-350%20-60%20-191%20-217%20-347%20-408%20-408%20-98%20-31%20-252%20-31%20-350%200%20-359%20113%20-535%20516%20-371%20848%2083%20166%20239%20290%20416%20330%2085%2019%20224%2013%20310%20-14z'/%3e%3c/g%3e%3c/svg%3e" color="#201b1b">
+    <link rel="shortcut icon" href="./assets/favicon-DOfNMslv.ico">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-config" content="./assets/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <script type="module" crossorigin src="./assets/main-BJl9kJ3w.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/main-D7Q73Jw7.css">
+  </head>
+
+  <body>
+    <div id="header">
+      <h1>
+        WriteHeight <span id="bar">|</span>
+        <span id="subhead">greyscale to 3D</span>
+      </h1>
+    </div>
+
+    <div class="render-container">
+      <img title="source image" id="output" src="" hidden />
+      <canvas
+        title=""
+        id="renderCanvas"
+      ></canvas>
+    </div>
+
+    <div class="button-group">
+      <label
+        title="invert heightmap"
+        class="action-icons"
+        id="invert"
+      >
+        <i class="fa fa-arrows-v" aria-hidden="true"></i>
+      </label>
+      <label
+        title="color by height"
+        class="action-icons"
+        id="heightGradient"
+      >
+        <i class="fa fa-mountain" aria-hidden="true"></i>
+      </label>
+      <label
+        title="reload current model"
+        class="action-icons"
+        id="reload"
+      >
+        <i class="fa fa-redo" aria-hidden="true"></i>
+      </label>
+      <label
+        title="show a random model"
+        class="action-icons"
+        id="refresh"
+      >
+        <i class="fa fa-random" aria-hidden="true"></i>
+      </label>
+      <form>
+        <label title="upload a greyscale image" class="action-icons" for="img">
+          <i class="fa fa-upload" aria-hidden="true"></i>
+        </label>
+        <input
+          type="file"
+          id="img"
+          name="img"
+          accept="image/*"
+          onchange="loadFile(event); meshify();"
+        />
+      </form>
+      <label
+        title="read about the application"
+        class="action-icons"
+        onclick="window.open('https://edibotopic.github.io/write-height/about.html')"
+      >
+        <i class="fa-solid fa-question" aria-hidden="true"></i>
+      </label>
+    </div>
+
+    <div class="filter-control">
+      <details>
+        <summary>Experimental Filters</summary>
+        <div class="filter-sliders">
+          <div class="filter-item">
+            <label for="blurSlider">Smooth: <span id="blurValue">0</span></label>
+            <input type="range" id="blurSlider" min="0" max="10" value="0" step="1">
+          </div>
+          <div class="filter-item">
+            <label for="contrastSlider">Contrast: <span id="contrastValue">100%</span></label>
+            <input type="range" id="contrastSlider" min="0" max="200" value="100" step="5">
+          </div>
+          <div class="filter-item">
+            <label for="brightnessSlider">Brightness: <span id="brightnessValue">100%</span></label>
+            <input type="range" id="brightnessSlider" min="0" max="200" value="100" step="5">
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <script>
+      const loadFile = function (event) {
+        const image = document.getElementById('output')
+        image.src = URL.createObjectURL(event.target.files[0])
+        resetOriginalImage()
+        heightGradientState = false
+        const heightGradientBtn = document.getElementById('heightGradient')
+        if (heightGradientBtn) {
+          heightGradientBtn.classList.remove('disabled')
+        }
+        updateButtonStates()
+      }
+
+      function updateButtonStates() {
+        // Update visual state of toggle buttons to match current state
+        const invertBtn = document.getElementById('invert')
+        const heightGradientBtn = document.getElementById('heightGradient')
+
+        if (invertHeightmap) {
+          invertBtn.style.color = '#ee82ee'
+        } else {
+          invertBtn.style.color = ''
+        }
+
+        if (heightGradientState) {
+          heightGradientBtn.style.color = '#ee82ee'
+        } else {
+          heightGradientBtn.style.color = ''
+        }
+      }
+
+      function hideUIForHeightGradient() {
+        // Hide experimental filters
+        const filterControl = document.querySelector('.filter-control')
+        if (filterControl) {
+          filterControl.classList.add('hidden')
+        }
+
+        // Hide LOD panel (Babylon GUI)
+        if (currentLODPanel) {
+          currentLODPanel.isVisible = false
+        }
+      }
+
+      function showUIForHeightGradient() {
+        // Show experimental filters
+        const filterControl = document.querySelector('.filter-control')
+        if (filterControl) {
+          filterControl.classList.remove('hidden')
+        }
+
+        // Show LOD panel (Babylon GUI)
+        if (currentLODPanel) {
+          currentLODPanel.isVisible = true
+        }
+      }
+
+      // Invert toggle
+      window.addEventListener('DOMContentLoaded', () => {
+        const invertBtn = document.getElementById('invert')
+        invertBtn.addEventListener('click', () => {
+          invertHeightmap = !invertHeightmap
+          // Toggle visual state
+          if (invertHeightmap) {
+            invertBtn.style.color = '#ee82ee'
+          } else {
+            invertBtn.style.color = ''
+          }
+          regenerateMesh()
+        })
+
+        // Height gradient - one-way action with confirmation
+        const heightGradientBtn = document.getElementById('heightGradient')
+        heightGradientBtn.addEventListener('click', () => {
+          if (!heightGradientState && !heightGradientBtn.classList.contains('disabled')) {
+            // Only allow turning ON, not OFF
+            const confirmed = confirm('Apply height-based terrain colors? (Reload model to return to solid colors)')
+            if (confirmed) {
+              heightGradientState = true
+              heightGradientBtn.style.color = '#ee82ee'
+              heightGradientBtn.classList.add('disabled')
+              if (currentModel) {
+                applyHeightGradient(currentModel)
+              }
+              // Hide LOD and experimental filters
+              hideUIForHeightGradient()
+            }
+          }
+        })
+
+        // Reload current model
+        const reloadBtn = document.getElementById('reload')
+        reloadBtn.addEventListener('click', () => {
+          const image = document.getElementById('output')
+          if (image.src) {
+            // Reset states
+            heightGradientState = false
+            resetOriginalImage()
+
+            // Reset filters to defaults
+            const blurSlider = document.getElementById('blurSlider')
+            const contrastSlider = document.getElementById('contrastSlider')
+            const brightnessSlider = document.getElementById('brightnessSlider')
+            if (blurSlider) blurSlider.value = 0
+            if (contrastSlider) contrastSlider.value = 100
+            if (brightnessSlider) brightnessSlider.value = 100
+
+            // Trigger filter update
+            if (blurSlider) blurSlider.dispatchEvent(new Event('input'))
+
+            // Re-enable height gradient button
+            heightGradientBtn.classList.remove('disabled')
+
+            // Show LOD and experimental filters
+            showUIForHeightGradient()
+
+            // Regenerate mesh
+            meshify()
+            updateButtonStates()
+          }
+        })
+      })
+    </script>
+
+  </body>
+</html>
