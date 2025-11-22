@@ -1,20 +1,20 @@
-'use strict'
+import { StandardMaterial, Color3, VertexBuffer } from '@babylonjs/core'
 
-let materialCreate = (model, scene) => {
-    const defaultMaterial = new BABYLON.StandardMaterial(
+export let materialCreate = (model, scene) => {
+    const defaultMaterial = new StandardMaterial(
       'defaultMaterial',
       scene
     )
 
-    const COLOR = new BABYLON.Color3(0.8, 0.8, 0.8)
+    const COLOR = new Color3(0.8, 0.8, 0.8)
     defaultMaterial.diffuseColor = COLOR
     model.material = defaultMaterial
 
     return defaultMaterial
 }
 
-let applyHeightGradient = (model) => {
-  const positions = model.getVerticesData(BABYLON.VertexBuffer.PositionKind)
+export let applyHeightGradient = (model) => {
+  const positions = model.getVerticesData(VertexBuffer.PositionKind)
   const colors = []
 
   // Find min and max heights
@@ -72,11 +72,11 @@ let applyHeightGradient = (model) => {
     colors.push(r, g, b, 1)
   }
 
-  model.setVerticesData(BABYLON.VertexBuffer.ColorKind, colors)
+  model.setVerticesData(VertexBuffer.ColorKind, colors)
   model.material.useVertexColors = true
 }
 
-let removeHeightGradient = (model) => {
+export let removeHeightGradient = (model) => {
   if (model && model.material) {
     model.material.useVertexColors = false
   }

@@ -32,17 +32,71 @@ When tested with Blender, all models were imported in the correct
 orientation.
 In other software models may need to be rotated into place.
 
+## Development
+
+This project uses [Vite](https://vitejs.dev/) as a build tool and npm for package management.
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- npm (comes with Node.js)
+
+### Setup
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+### Commands
+
+**Run a development server:**
+
+```bash
+npm run dev
+```
+Opens at http://localhost:3000 with automatic page refresh on file changes.
+
+**Build for production:**
+
+```bash
+npm run build
+```
+Creates optimized bundle in `/docs`.
+
+**Preview production build:**
+
+```bash
+npm run preview
+```
+Serves the production build from `/docs` to test before deploying.
+
+### Deployment
+
+The production build outputs to `/docs` folder, which is configured for GitHub Pages:
+
+1. Run `npm run build`
+2. Commit both source files and `/docs` folder
+3. Push to GitHub
+4. Configure GitHub Pages to serve from `/docs` folder in repository settings
+
 ## To-do
 
 - [X] Fix bug where multiple downloads trigger
 - [X] Allow level of detail in model to be adjusted 
-- [ ] Test option to adjust orientation (y-up/z-up) for export
 - [X] Reintroduce `.glb` and `.obj` exports
 - [ ] Improve feedback and file-naming on export
 - [X] Persist toggled options between model loadings
 - [ ] More and better examples
 
 ## Changelog
+
+### v0.3
+
+- Switch to ES modules and Vite build
+- Color picker regression fixed
+- Performance issue on repeated shuffle fixed
 
 ### v0.2
 

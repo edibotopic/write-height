@@ -1,13 +1,13 @@
-'use strict'
+import { MeshBuilder } from '@babylonjs/core'
 
-let mapCreate = (image, scene, subdivisions = 200) => {
+export let mapCreate = (image, scene, subdivisions = 200, invertHeightmap = false) => {
   // Only dispose the heightmap model, not the grid
   const existingModel = scene.getMeshByName('gdhm')
   if (existingModel) {
     existingModel.dispose(false, true)
   }
 
-  const model = BABYLON.MeshBuilder.CreateGroundFromHeightMap(
+  const model = MeshBuilder.CreateGroundFromHeightMap(
     'gdhm',
     image.src,
     {

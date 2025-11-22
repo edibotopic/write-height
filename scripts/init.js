@@ -1,17 +1,17 @@
-'use strict'
+import { Engine, Scene, Color3 } from '@babylonjs/core'
 
-let canvasCreate = () => {
+export let canvasCreate = () => {
   const canvas = document.getElementById('renderCanvas')
   return canvas
 }
 
-let engineCreate = () => {
-  const engine = new BABYLON.Engine(canvas, true)
+export let engineCreate = (canvas) => {
+  const engine = new Engine(canvas, true)
   return engine
 }
 
-let sceneCreate = (engine) => {
-  const scene = new BABYLON.Scene(engine)
-  scene.clearColor = BABYLON.Color3.Black()
+export let sceneCreate = (engine) => {
+  const scene = new Scene(engine)
+  scene.clearColor = Color3.Black()
   return scene
 }

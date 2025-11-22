@@ -1,22 +1,4 @@
-'use strict'
-
-let imageCreate = () => {
-  // Load image and create mesh on startup
-  window.onload = () => {
-    getRndImg()
-    meshify()
-  }
-
-  // Load image and create mesh on button click
-  const refresh = document.querySelector('#refresh')
-  refresh.addEventListener('click', () => {
-    getRndImg()
-    meshify()
-    if (typeof updateButtonStates === 'function') {
-      updateButtonStates()
-    }
-  })
-
+export let imageCreate = (meshify, resetOriginalImage, state) => {
   // Builtin image examples
   const imgs = [
     'demos/demo1.png',
@@ -33,7 +15,7 @@ let imageCreate = () => {
   let oldImg = []
   let imgCount = 0
 
-  let getRndImg = () => {
+  const getRndImg = () => {
     const currentSrc = document.getElementById('output').src
     let rnd = Math.floor(Math.random() * imgs.length)
 
@@ -41,7 +23,7 @@ let imageCreate = () => {
     if (!oldImg[rnd] && !currentSrc.includes(imgs[rnd])) {
       document.getElementById('output').src = imgs[rnd]
       resetOriginalImage()
-      heightGradientState = false
+      state.heightGradientState = false
       const heightGradientBtn = document.getElementById('heightGradient')
       if (heightGradientBtn) {
         heightGradientBtn.classList.remove('disabled')
@@ -56,4 +38,22 @@ let imageCreate = () => {
       getRndImg()
     }
   }
+
+  // Load image and create mesh on startup
+  window.onload = () => {
+    getRndImg()
+    meshify()
+  }
+
+  // Load image and create mesh on button click
+  const refresh = document.querySelector('#refresh')
+  refresh.addEventListener('click', () => {
+    getRndImg()
+    meshify()
+    if (typeof updateButtonStates === 'function') {
+      updateButtonStates()
+    }
+  })
+
+  return { getRndImg }
 }
